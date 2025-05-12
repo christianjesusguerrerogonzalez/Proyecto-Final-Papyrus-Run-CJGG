@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bcv60r6jdifag"]
+
+[ext_resource type="Texture2D" uid="uid://bkflcjephdsfg" path="res://Sprites/vegetoidataque (1).png" id="1_ixt77"]
+[ext_resource type="Script" path="res://Scripts/primer_cura_vegetoid.gd" id="1_qaj40"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5jfy"]
+atlas = ExtResource("1_ixt77")
+region = Rect2(28, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lln0p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5jfy")
+}],
+"loop": true,
+"name": &"Mosquitos",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfdfv"]
+size = Vector2(15, 22)
+
+[node name="PrimerCuraVegetoid" type="Area2D"]
+scale = Vector2(2.23729, 1.97561)
+script = ExtResource("1_qaj40")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 4)
+sprite_frames = SubResource("SpriteFrames_lln0p")
+animation = &"Mosquitos"
+autoplay = "Mosquitos"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_wfdfv")
+
+[connection signal="body_entered" from="." to="." method="_on_proyectil_body_entered"]

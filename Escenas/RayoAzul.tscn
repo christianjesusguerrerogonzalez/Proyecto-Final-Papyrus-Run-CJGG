@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://curjpx63olsph"]
+
+[ext_resource type="Texture2D" uid="uid://5ualdtd2x26r" path="res://Sprites/rayoazul.png" id="1_jiv04"]
+[ext_resource type="Script" path="res://Scripts/rayo_azul.gd" id="1_s4ptw"]
+[ext_resource type="PackedScene" uid="uid://b4kdasx3jhiid" path="res://Escenas/dano.tscn" id="2_twilo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arofp"]
+size = Vector2(159, 6)
+
+[node name="RayoAzul" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_s4ptw")
+
+[node name="Rayoazul" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+rotation = -1.57221
+texture = ExtResource("1_jiv04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 4)
+shape = SubResource("RectangleShape2D_arofp")
+
+[node name="dano" parent="." instance=ExtResource("2_twilo")]
+position = Vector2(-9, 1)
+collision_layer = 3
+collision_mask = 3
+damage_amount = 50.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+
+[editable path="dano"]

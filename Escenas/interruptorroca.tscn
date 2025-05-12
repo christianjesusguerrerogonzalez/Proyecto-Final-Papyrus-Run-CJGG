@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bio1xl86wjguh"]
+
+[ext_resource type="Script" path="res://Scripts/interruptorroca.gd" id="1_exsj6"]
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="1_r5o0f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6favp"]
+atlas = ExtResource("1_r5o0f")
+region = Rect2(464, 457, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5rso"]
+atlas = ExtResource("1_r5o0f")
+region = Rect2(443, 457, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g60ib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6favp")
+}],
+"loop": true,
+"name": &"activado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5rso")
+}],
+"loop": true,
+"name": &"desactivado",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ldpd"]
+size = Vector2(12, 48)
+
+[node name="InterruptorRoca" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_exsj6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_g60ib")
+animation = &"desactivado"
+autoplay = "desactivado"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_0ldpd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://b13vthq3pjgaj"]
+
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="1_ajc7a"]
+[ext_resource type="Script" path="res://Scripts/boton_puzzle_suelo.gd" id="1_x7mia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_603o0"]
+atlas = ExtResource("1_ajc7a")
+region = Rect2(464, 415, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6rbg"]
+atlas = ExtResource("1_ajc7a")
+region = Rect2(443, 415, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6bpho"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_603o0")
+}],
+"loop": true,
+"name": &"pisada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6rbg")
+}],
+"loop": true,
+"name": &"sinpisar",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60yyp"]
+size = Vector2(15, 13)
+
+[node name="BotonPuzzleSuelo" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_x7mia")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6bpho")
+animation = &"sinpisar"
+autoplay = "sinpisar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_60yyp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

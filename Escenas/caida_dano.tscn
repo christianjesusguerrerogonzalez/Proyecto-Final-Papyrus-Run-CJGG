@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://mdaodiui8aup"]
+
+[ext_resource type="PackedScene" uid="uid://b4kdasx3jhiid" path="res://Escenas/dano.tscn" id="1_r3pk3"]
+[ext_resource type="Script" path="res://Scripts/caida_dano.gd" id="1_ry456"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfe8c"]
+
+[node name="CaidaDano" type="Area2D"]
+script = ExtResource("1_ry456")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cfe8c")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="dano" parent="." instance=ExtResource("1_r3pk3")]
+position = Vector2(-1, -16)
+scale = Vector2(0.259542, 5.34483)
+collision_layer = 3
+collision_mask = 3
+damage_amount = 100.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="." to="dano" method="_on_caida_dano_body_entered"]

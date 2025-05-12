@@ -1,0 +1,541 @@
+[gd_scene load_steps=42 format=3 uid="uid://gmeliajv66sw"]
+
+[ext_resource type="PackedScene" uid="uid://c2j08aded6w7g" path="res://Escenas/generadornieve.tscn" id="1_0qm3d"]
+[ext_resource type="Script" path="res://Scripts/snowdin.gd" id="1_b3gie"]
+[ext_resource type="PackedScene" uid="uid://dvtd1daawvfm0" path="res://papyrus.tscn" id="2_oqor0"]
+[ext_resource type="PackedScene" uid="uid://cmabkr7fievv0" path="res://ElementosAnimados/antorcha.tscn" id="2_vc43y"]
+[ext_resource type="PackedScene" uid="uid://b63csann7jqmk" path="res://Escenas/enemigo.tscn" id="3_0dlbm"]
+[ext_resource type="PackedScene" uid="uid://h88i2ontyo3t" path="res://Escenas/spawnpoint.tscn" id="3_p1med"]
+[ext_resource type="PackedScene" uid="uid://bxd2880i32ym3" path="res://Escenas/arbol.tscn" id="3_pjg86"]
+[ext_resource type="PackedScene" uid="uid://c1pxpns2gl0wm" path="res://Escenas/bola_nieve.tscn" id="4_2jtsi"]
+[ext_resource type="AudioStream" uid="uid://bdkbnrlh48ocm" path="res://Snowy-Instrumental-Mix-Cover-_Undertale_.wav" id="4_52brt"]
+[ext_resource type="PackedScene" uid="uid://barxppd3w31ee" path="res://Mapas/mapasnowdin.tscn" id="4_bvsxx"]
+[ext_resource type="PackedScene" uid="uid://bnh3pbt1y3xaj" path="res://Escenas/cartel.tscn" id="4_icfqt"]
+[ext_resource type="PackedScene" uid="uid://bvqaa760tch0l" path="res://Escenas/teletransporte.tscn" id="4_ja7id"]
+[ext_resource type="PackedScene" uid="uid://cgjsbbbh4o5jt" path="res://Escenas/dialogos.tscn" id="5_d4y6k"]
+[ext_resource type="PackedScene" uid="uid://diropgllewltv" path="res://Escenas/pinchos_puzzle_suelo.tscn" id="8_ba37p"]
+[ext_resource type="PackedScene" uid="uid://hl4b034py5s2" path="res://Escenas/puzzle_azul.tscn" id="9_1ibjm"]
+[ext_resource type="PackedScene" uid="uid://b13vthq3pjgaj" path="res://Escenas/boton_puzzle_suelo.tscn" id="9_chtdn"]
+[ext_resource type="PackedScene" uid="uid://feuu2t5755k0" path="res://Escenas/puzzle_suelo.tscn" id="10_07bxg"]
+[ext_resource type="PackedScene" uid="uid://yk4o4sukgrub" path="res://Escenas/pinchos_jefe.tscn" id="10_8uwg2"]
+[ext_resource type="PackedScene" uid="uid://i8tpacsup328" path="res://Escenas/cueva_snowdin.tscn" id="10_dsy76"]
+[ext_resource type="PackedScene" uid="uid://bg2vemxiaamos" path="res://Escenas/interactuar.tscn" id="10_ocoo4"]
+[ext_resource type="FontFile" uid="uid://bgbixvqv5uk2w" path="res://Imagenes/determination-mono-web-font/DeterminationSansWebRegular-369X.ttf" id="12_0yseo"]
+[ext_resource type="Texture2D" uid="uid://tp6hlxt44r1q" path="res://Mapas/snowdinmap.png" id="13_1yrxp"]
+[ext_resource type="PackedScene" uid="uid://dw2c65v8mh7cr" path="res://Escenas/misiones.tscn" id="13_w7gaq"]
+[ext_resource type="PackedScene" uid="uid://cx3k7fjifx8gs" path="res://Escenas/hielo.tscn" id="14_uu8uf"]
+[ext_resource type="PackedScene" uid="uid://dbee2r6v1by02" path="res://Escenas/rayonaranja.tscn" id="17_ivnvr"]
+[ext_resource type="PackedScene" uid="uid://curjpx63olsph" path="res://Escenas/RayoAzul.tscn" id="18_xqsid"]
+[ext_resource type="PackedScene" uid="uid://mdaodiui8aup" path="res://Escenas/caida_dano.tscn" id="21_5s5gv"]
+[ext_resource type="Script" path="res://Scripts/animacioncamarajefe.gd" id="21_g4k16"]
+[ext_resource type="PackedScene" uid="uid://6tfpogv5jd8j" path="res://Escenas/salto.tscn" id="24_i4s5y"]
+[ext_resource type="Script" path="res://Scripts/area_candado.gd" id="26_l5p0a"]
+[ext_resource type="PackedScene" uid="uid://dn8an7wovqune" path="res://Escenas/candado.tscn" id="27_vc7xq"]
+[ext_resource type="PackedScene" uid="uid://b778s2lk7ae6c" path="res://Escenas/pinchos_candado.tscn" id="31_0i862"]
+[ext_resource type="PackedScene" uid="uid://boejs0cvlns1t" path="res://Escenas/teletransporte_a_otra_escena.tscn" id="32_xgsp6"]
+
+[sub_resource type="Animation" id="Animation_gwapy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PuzzleAzules/RayoAzul:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(108, 984)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PuzzleAzules/RayoAzul2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-134, 985)]
+}
+
+[sub_resource type="Animation" id="Animation_dtaxs"]
+resource_name = "RayosMoviendose"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../PuzzleAzules/RayoAzul:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(108, 984), Vector2(-134, 982)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../PuzzleAzules/RayoAzul2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-134, 985), Vector2(122, 987)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_170x4"]
+_data = {
+"RESET": SubResource("Animation_gwapy"),
+"RayosMoviendose": SubResource("Animation_dtaxs")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4pv4"]
+size = Vector2(46, 82)
+
+[sub_resource type="Animation" id="Animation_yn5l3"]
+resource_name = "Camara_Jefe"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Papyrus/Camera2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667, 3.63333, 6.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(521, 0), Vector2(521, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1sneu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Papyrus/Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uib5w"]
+_data = {
+"Camara_Jefe": SubResource("Animation_yn5l3"),
+"RESET": SubResource("Animation_1sneu")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5vvou"]
+size = Vector2(19.6543, 15.7389)
+
+[node name="Snowdin" type="Node2D"]
+z_index = 8
+position = Vector2(3, 1)
+script = ExtResource("1_b3gie")
+antorcha_scene = ExtResource("2_vc43y")
+arbol_scene = ExtResource("3_pjg86")
+bola_nieve_scene = ExtResource("4_2jtsi")
+
+[node name="GeneradorNieve" parent="." instance=ExtResource("1_0qm3d")]
+position = Vector2(3, -2)
+scale = Vector2(28.44, 13.32)
+lifetime = 40.0
+
+[node name="Spawnpoints" type="Node" parent="."]
+
+[node name="spawnpoint" parent="Spawnpoints" instance=ExtResource("3_p1med")]
+position = Vector2(145, 616)
+
+[node name="spawnpoint2" parent="Spawnpoints" instance=ExtResource("3_p1med")]
+position = Vector2(220, 1427)
+
+[node name="spawnpoint3" parent="Spawnpoints" instance=ExtResource("3_p1med")]
+position = Vector2(923, 1624)
+
+[node name="Papyrus" parent="." instance=ExtResource("2_oqor0")]
+position = Vector2(106, 647)
+
+[node name="AreasTeletransporte" type="Node" parent="."]
+
+[node name="AreaTeletransporte" parent="AreasTeletransporte" instance=ExtResource("4_ja7id")]
+position = Vector2(2260, 270)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte" index="1"]
+position = Vector2(1497, 426)
+
+[node name="AreaTeletransporte2" parent="AreasTeletransporte" instance=ExtResource("4_ja7id")]
+position = Vector2(3757, -75)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte2" index="1"]
+position = Vector2(-3499, 1713)
+
+[node name="AreaTeletransporte3" parent="AreasTeletransporte" instance=ExtResource("4_ja7id")]
+position = Vector2(2501, 282)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte3" index="1"]
+position = Vector2(-2247, 2282)
+
+[node name="TeletransporteASnowdinCueva" parent="AreasTeletransporte" instance=ExtResource("32_xgsp6")]
+position = Vector2(525, 2314)
+escena_teletransportada = ExtResource("10_dsy76")
+
+[node name="AreaTeletransporte4" parent="AreasTeletransporte" instance=ExtResource("4_ja7id")]
+position = Vector2(3325, 1599)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte4" index="1"]
+position = Vector2(-2051, 780)
+
+[node name="Carteles" type="Node" parent="."]
+
+[node name="Cartel" parent="Carteles" instance=ExtResource("4_icfqt")]
+position = Vector2(1112, 520)
+
+[node name="Interactuar" parent="Carteles/Cartel" index="4"]
+texto = ["\"Todo tiene que ser de un color...\"", "\"Pero, ¿cuál?\""]
+
+[node name="Cartel2" parent="Carteles" instance=ExtResource("4_icfqt")]
+position = Vector2(2997, 1579)
+
+[node name="Interactuar" parent="Carteles/Cartel2" index="4"]
+texto = ["Entra en el siguiente cartel para introducir;un codigo.", "El orden es:  Antorchas, árboles, bolas."]
+
+[node name="TransicionNegro" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="TransicionNegro"]
+anchors_preset = -1
+anchor_left = -0.0347222
+anchor_top = -0.0617284
+anchor_right = -0.0347222
+anchor_bottom = -0.0617284
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Items" type="Node" parent="."]
+
+[node name="PinchosPuzzleSuelo" parent="Items" node_paths=PackedStringArray("boton") instance=ExtResource("8_ba37p")]
+position = Vector2(1223, 630)
+boton = NodePath("../BotonPuzzleSuelo")
+
+[node name="BotonPuzzleSuelo" parent="Items" node_paths=PackedStringArray("suelos", "pinchos") instance=ExtResource("9_chtdn")]
+position = Vector2(1182, 628)
+suelos = [NodePath("../PuzzleSuelo"), NodePath("../PuzzleSuelo2"), NodePath("../PuzzleSuelo3"), NodePath("../PuzzleSuelo4")]
+pinchos = [NodePath("../PinchosPuzzleSuelo")]
+
+[node name="PuzzleSuelo" parent="Items" instance=ExtResource("10_07bxg")]
+position = Vector2(1078, 597)
+
+[node name="PuzzleSuelo2" parent="Items" instance=ExtResource("10_07bxg")]
+position = Vector2(1140, 597)
+
+[node name="PuzzleSuelo3" parent="Items" instance=ExtResource("10_07bxg")]
+position = Vector2(1078, 647)
+
+[node name="PuzzleSuelo4" parent="Items" instance=ExtResource("10_07bxg")]
+position = Vector2(1140, 647)
+
+[node name="PuzzleSuelo5" parent="Items" instance=ExtResource("10_07bxg")]
+position = Vector2(-195, 978)
+
+[node name="PuzzleSuelo6" parent="Items" instance=ExtResource("10_07bxg")]
+position = Vector2(988, 980)
+
+[node name="PuzzleSuelo7" parent="Items" instance=ExtResource("10_07bxg")]
+position = Vector2(780, 1173)
+
+[node name="BotonPuzzleSuelo2" parent="Items" node_paths=PackedStringArray("suelos", "pinchos") instance=ExtResource("9_chtdn")]
+position = Vector2(379, 1507)
+suelos = [NodePath("../PuzzleSuelo5"), NodePath("../PuzzleSuelo6"), NodePath("../PuzzleSuelo7")]
+pinchos = [NodePath("../PinchosPuzzleSuelo2"), NodePath("../PinchosPuzzleSuelo3"), NodePath("../PinchosPuzzleSuelo4"), NodePath("../PinchosPuzzleSuelo5")]
+
+[node name="PinchosPuzzleSuelo2" parent="Items" instance=ExtResource("8_ba37p")]
+position = Vector2(545, 1471)
+
+[node name="PinchosPuzzleSuelo3" parent="Items" instance=ExtResource("8_ba37p")]
+position = Vector2(545, 1491)
+
+[node name="PinchosPuzzleSuelo4" parent="Items" instance=ExtResource("8_ba37p")]
+position = Vector2(545, 1511)
+
+[node name="PinchosPuzzleSuelo5" parent="Items" instance=ExtResource("8_ba37p")]
+position = Vector2(545, 1531)
+
+[node name="CaidaDano4" parent="Items" instance=ExtResource("21_5s5gv")]
+position = Vector2(892, 1112)
+scale = Vector2(1.71532, 0.490707)
+
+[node name="Marker2D" parent="Items/CaidaDano4" index="1"]
+position = Vector2(-125.924, -258.81)
+
+[node name="CaidaDano" parent="Items" instance=ExtResource("21_5s5gv")]
+position = Vector2(858, 1014)
+scale = Vector2(0.962017, 8.72124)
+
+[node name="Marker2D" parent="Items/CaidaDano" index="1"]
+position = Vector2(-189.186, -3.43988)
+
+[node name="CaidaDano2" parent="Items" instance=ExtResource("21_5s5gv")]
+position = Vector2(1000, 1128)
+scale = Vector2(2.6272, 6.89737)
+
+[node name="Marker2D" parent="Items/CaidaDano2" index="1"]
+position = Vector2(-123.706, -20.8775)
+
+[node name="CaidaDano3" parent="Items" instance=ExtResource("21_5s5gv")]
+position = Vector2(949, 1231)
+scale = Vector2(10.636, -1.74915)
+
+[node name="Marker2D" parent="Items/CaidaDano3" index="1"]
+position = Vector2(-25.6676, 141.212)
+
+[node name="PinchosJefe" parent="Items" instance=ExtResource("10_8uwg2")]
+position = Vector2(1722, 1643)
+
+[node name="Salto" parent="Items" instance=ExtResource("24_i4s5y")]
+position = Vector2(1878, 1647)
+
+[node name="Salto2" parent="Items" instance=ExtResource("24_i4s5y")]
+position = Vector2(2015, 1648)
+
+[node name="Salto3" parent="Items" instance=ExtResource("24_i4s5y")]
+position = Vector2(2180, 1646)
+
+[node name="PinchosCandado" parent="Items" instance=ExtResource("31_0i862")]
+position = Vector2(3210, 1602)
+scale = Vector2(0.988202, 1.02655)
+
+[node name="PuzzleAzules" type="Node" parent="."]
+
+[node name="PuzzleAzul" parent="PuzzleAzules" instance=ExtResource("9_1ibjm")]
+z_index = 1
+position = Vector2(679, 1501)
+rotation = 1.57079
+
+[node name="Marker2D" parent="PuzzleAzules/PuzzleAzul" index="2"]
+position = Vector2(8.99968, 143)
+
+[node name="daño" parent="PuzzleAzules/PuzzleAzul" index="3"]
+damage_amount = 100.0
+
+[node name="RayoNaranja" parent="PuzzleAzules" instance=ExtResource("17_ivnvr")]
+position = Vector2(130, 984)
+rotation = 1.57227
+
+[node name="RayoAzul" parent="PuzzleAzules" instance=ExtResource("18_xqsid")]
+position = Vector2(108, 984)
+rotation = 1.57739
+
+[node name="dano" parent="PuzzleAzules/RayoAzul" index="2"]
+damage_amount = 100.0
+
+[node name="RayoAzul2" parent="PuzzleAzules" instance=ExtResource("18_xqsid")]
+position = Vector2(-134, 985)
+rotation = 1.57719
+
+[node name="dano" parent="PuzzleAzules/RayoAzul2" index="2"]
+damage_amount = 100.0
+
+[node name="RayoNaranja2" parent="PuzzleAzules" instance=ExtResource("17_ivnvr")]
+position = Vector2(-150, 985)
+rotation = -1.5665
+
+[node name="DecoracionSprites" type="Node" parent="."]
+
+[node name="Hielo" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(1747, 611)
+
+[node name="Hielo2" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(1828, 611)
+
+[node name="Hielo3" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(1909, 611)
+
+[node name="Hielo4" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(1990, 611)
+
+[node name="Hielo5" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(2071, 611)
+
+[node name="Hielo6" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(328, 1310)
+
+[node name="Hielo7" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(328, 1230)
+
+[node name="Hielo8" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(567, 1471)
+
+[node name="Hielo9" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(648, 1471)
+
+[node name="Hielo10" parent="DecoracionSprites" instance=ExtResource("14_uu8uf")]
+position = Vector2(729, 1471)
+
+[node name="Tronco" type="Sprite2D" parent="DecoracionSprites"]
+z_index = 5
+position = Vector2(1683, -24)
+texture = ExtResource("13_1yrxp")
+region_enabled = true
+region_rect = Rect2(684, 0, 76, 249)
+
+[node name="Tronco2" type="Sprite2D" parent="DecoracionSprites"]
+z_index = 5
+position = Vector2(1798, -23)
+texture = ExtResource("13_1yrxp")
+region_enabled = true
+region_rect = Rect2(684, 0, 76, 249)
+
+[node name="Tronco3" type="Sprite2D" parent="DecoracionSprites"]
+z_index = 5
+position = Vector2(1934, -25)
+texture = ExtResource("13_1yrxp")
+region_enabled = true
+region_rect = Rect2(684, 0, 76, 249)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_52brt")
+volume_db = -8.814
+autoplay = true
+max_distance = 800000.0
+
+[node name="Backgrounds" type="Node" parent="."]
+
+[node name="Mapasnowdin" parent="Backgrounds" instance=ExtResource("4_bvsxx")]
+position = Vector2(117, 661)
+
+[node name="Dialogos" type="Node" parent="."]
+
+[node name="Dialogo" parent="Dialogos" instance=ExtResource("5_d4y6k")]
+position = Vector2(318, 764)
+texto = ["*CHARA** Ya estamos...", "*CLOVER** Hace más frio de lo que pensaba."]
+
+[node name="Dialogo2" parent="Dialogos" instance=ExtResource("5_d4y6k")]
+position = Vector2(583, 714)
+texto = ["*CLOVER** Oye, deberías de intentar pedir ayuda.", "*CLOVER** Intenta llamar a esa casa, a ver si hay;  alguien.", "*CHARA** ¿Y si no hay nadie?", "*CLOVER** ...", "*CHARA** Golpea la puerta.", "*CLOVER** NO."]
+
+[node name="Dialogo3" parent="Dialogos" instance=ExtResource("5_d4y6k")]
+position = Vector2(943, 622)
+texto = ["*CLOVER** ¿Y este puzzle?", "*CHARA** Deberías de leer ese cartel.", "*CLOVER** No veo ningún cartel..", "*CHARA** MIRA DELANTE TUYA."]
+
+[node name="Dialogo4" parent="Dialogos" instance=ExtResource("5_d4y6k")]
+position = Vector2(2274, 722)
+texto = ["*CHARA** ...2 caminos.", "*CLOVER** Puede que lleven al mismo lugar, ¿no?", "*CHARA** No estoy seguro, elige sabiamente.", "*CLOVER** ¡Confiamos en tí!"]
+
+[node name="Interactuar" parent="Dialogos" instance=ExtResource("10_ocoo4")]
+position = Vector2(560, 564)
+texto = ["* ...", "* No hay nadie."]
+
+[node name="Interactuar2" parent="Dialogos" instance=ExtResource("10_ocoo4")]
+position = Vector2(1385, 574)
+texto = ["* ¿qué haces aquí, no estabas en casa?", "*  bueno, da igual, sigue hacia delante, te esperaré en;    el pueblo."]
+
+[node name="RichTextLabel" parent="Dialogos/Interactuar2/CanvasLayer/Panel" index="0"]
+theme_override_fonts/normal_font = ExtResource("12_0yseo")
+
+[node name="Dialogo5" parent="Dialogos" instance=ExtResource("5_d4y6k")]
+position = Vector2(352, 1143)
+texto = ["*CHARA** Se me olvidó comentarte algo.", "*CHARA** Te lo voy a explicar de la manera más fácil;  que puedo.", "*CHARA** Azul: No te muevas. Naranja: Muevete.;  ¿Lo has entendido?", "*CLOVER** Mucho texto..", "*CHARA** CALLA."]
+
+[node name="Dialogo6" parent="Dialogos" instance=ExtResource("5_d4y6k")]
+position = Vector2(2374, 464)
+texto = ["*CLOVER** Por si no te has dado cuenta, puedes;  disparar huesos pulsando el botón de ESPACIO."]
+
+[node name="Misiones" type="Node" parent="."]
+
+[node name="Misiones2" parent="Misiones" instance=ExtResource("13_w7gaq")]
+position = Vector2(360, 560)
+mision_text = "Explora el bosque"
+
+[node name="Misiones" parent="Misiones" instance=ExtResource("13_w7gaq")]
+position = Vector2(2214, 562)
+mision_text = "Elige un camino (Tendrá distintos puzzles / pruebas)"
+
+[node name="Misiones3" parent="Misiones" instance=ExtResource("13_w7gaq")]
+position = Vector2(333, 1391)
+mision_text = "Soluciona este puzzle."
+
+[node name="Animaciones" type="Node" parent="."]
+
+[node name="RayosMoviendose" type="AnimationPlayer" parent="Animaciones"]
+libraries = {
+"": SubResource("AnimationLibrary_170x4")
+}
+autoplay = "RayosMoviendose"
+
+[node name="AnimacionCamaraJefe" type="Area2D" parent="Animaciones"]
+position = Vector2(-5, 1)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("21_g4k16")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Animaciones/AnimacionCamaraJefe"]
+position = Vector2(1061, 1640)
+shape = SubResource("RectangleShape2D_r4pv4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Animaciones/AnimacionCamaraJefe"]
+libraries = {
+"": SubResource("AnimationLibrary_uib5w")
+}
+
+[node name="Enemigos" type="Node" parent="."]
+
+[node name="Enemigo" parent="Enemigos" instance=ExtResource("3_0dlbm")]
+position = Vector2(-4, 982)
+health = 3
+
+[node name="Enemigo2" parent="Enemigos" node_paths=PackedStringArray("pinchos") instance=ExtResource("3_0dlbm")]
+position = Vector2(1561, 1645)
+scale = Vector2(0.907033, 0.848677)
+health = 5
+es_jefe = true
+pinchos = NodePath("../../Items/PinchosJefe")
+
+[node name="AreaCandado" type="Area2D" parent="."]
+scale = Vector2(0.988202, 1.02655)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("26_l5p0a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaCandado"]
+position = Vector2(3168.38, 1547.9)
+shape = SubResource("RectangleShape2D_5vvou")
+
+[node name="Candado" parent="AreaCandado" node_paths=PackedStringArray("pinchos") instance=ExtResource("27_vc7xq")]
+pinchos = NodePath("../../Items/PinchosCandado")
+
+[connection signal="body_entered" from="Animaciones/AnimacionCamaraJefe" to="Animaciones/AnimacionCamaraJefe" method="_on_body_entered"]
+[connection signal="body_entered" from="AreaCandado" to="AreaCandado" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaCandado" to="AreaCandado" method="_on_body_exited"]
+
+[editable path="Papyrus"]
+[editable path="AreasTeletransporte/AreaTeletransporte"]
+[editable path="AreasTeletransporte/AreaTeletransporte2"]
+[editable path="AreasTeletransporte/AreaTeletransporte3"]
+[editable path="AreasTeletransporte/AreaTeletransporte4"]
+[editable path="Carteles/Cartel"]
+[editable path="Carteles/Cartel/Interactuar"]
+[editable path="Carteles/Cartel2"]
+[editable path="Items/CaidaDano4"]
+[editable path="Items/CaidaDano"]
+[editable path="Items/CaidaDano2"]
+[editable path="Items/CaidaDano3"]
+[editable path="PuzzleAzules/PuzzleAzul"]
+[editable path="PuzzleAzules/PuzzleAzul/daño"]
+[editable path="PuzzleAzules/RayoAzul"]
+[editable path="PuzzleAzules/RayoAzul/dano"]
+[editable path="PuzzleAzules/RayoAzul2"]
+[editable path="PuzzleAzules/RayoAzul2/dano"]
+[editable path="Dialogos/Interactuar"]
+[editable path="Dialogos/Interactuar2"]
+[editable path="Enemigos/Enemigo"]

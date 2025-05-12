@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://curra27w0fwm2"]
+
+[ext_resource type="Texture2D" uid="uid://c6y7342dhvd5e" path="res://Imagenes/Froggit_battle.png" id="1_jt71g"]
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="2_lt663"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c2c6"]
+size = Vector2(311, 314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd8km"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7byf"]
+bg_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fr6y"]
+bg_color = Color(0.244776, 0.244776, 0.244776, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vd2i"]
+bg_color = Color(0.6, 0.941176, 0, 1)
+
+[node name="Froggit" type="Area2D"]
+
+[node name="FroggitBattle" type="Sprite2D" parent="."]
+position = Vector2(446, 99)
+texture = ExtResource("1_jt71g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(453.5, 104)
+shape = SubResource("RectangleShape2D_8c2c6")
+
+[node name="BarraVidaFroggit" type="ProgressBar" parent="."]
+offset_left = 605.0
+offset_top = -101.0
+offset_right = 905.0
+offset_bottom = -52.0
+rotation = 3.14311
+theme_override_styles/background = SubResource("StyleBoxFlat_qd8km")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l7byf")
+max_value = 50.0
+value = 50.0
+fill_mode = 1
+show_percentage = false
+
+[node name="LabelDano" type="Label" parent="."]
+offset_left = 38.0
+offset_top = -166.0
+offset_right = 78.0
+offset_bottom = -84.0
+theme_override_fonts/font = ExtResource("2_lt663")
+theme_override_font_sizes/font_size = 80
+text = "0"
+
+[node name="BarraMercyFroggit" type="ProgressBar" parent="."]
+offset_left = 786.0
+offset_top = -68.0
+offset_right = 1022.0
+offset_bottom = 5.0
+rotation = 1.57296
+theme_override_styles/background = SubResource("StyleBoxFlat_5fr6y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3vd2i")
+fill_mode = 1
+show_percentage = false

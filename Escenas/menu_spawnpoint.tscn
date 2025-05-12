@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgrejqsw3fp62"]
+
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="1_00e7u"]
+[ext_resource type="Script" path="res://Scripts/menu_spawnpoint.gd" id="1_ierq2"]
+[ext_resource type="Texture2D" uid="uid://d06xb2tboit35" path="res://Imagenes/soul (1) (1).png" id="1_jdcjn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amuiu"]
+bg_color = Color(0, 0, 0, 0.788235)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0q84g"]
+atlas = ExtResource("1_jdcjn")
+region = Rect2(3, 0, 23, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yroo0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0q84g")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pdp2s"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7ro3"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+
+[node name="MenuSpawnpoint" type="CanvasLayer"]
+script = ExtResource("1_ierq2")
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 9
+anchors_preset = -1
+anchor_top = -0.20679
+anchor_right = 0.279514
+anchor_bottom = 0.12037
+offset_left = -332.0
+offset_top = -46.0001
+offset_right = 28.0
+offset_bottom = 114.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_amuiu")
+metadata/_edit_use_anchors_ = true
+
+[node name="heart" type="AnimatedSprite2D" parent="Panel"]
+z_index = 1
+position = Vector2(56.25, 136.75)
+scale = Vector2(2.41304, 2.34)
+sprite_frames = SubResource("SpriteFrames_yroo0")
+animation = &"idle"
+
+[node name="Save" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0615836
+anchor_top = 0.298387
+anchor_right = 0.259531
+anchor_bottom = 0.448925
+offset_left = 60.0
+offset_top = 80.0
+offset_right = 140.0
+offset_bottom = 122.0
+theme_override_fonts/font = ExtResource("1_00e7u")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_pdp2s")
+action_mode = 0
+text = "Guardar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Return" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.328446
+anchor_top = 0.303764
+anchor_right = 0.571848
+anchor_bottom = 0.470431
+offset_left = 200.0
+offset_top = 78.0
+offset_right = 249.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("1_00e7u")
+theme_override_font_sizes/font_size = 38
+theme_override_styles/normal = SubResource("StyleBoxFlat_q7ro3")
+text = "Volver"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 45.0
+offset_right = 469.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("1_00e7u")
+theme_override_font_sizes/font_size = 50
+text = "Papyrus   LV1"
+
+[node name="LabelGlitched" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 45.0
+offset_right = 709.0
+offset_bottom = 106.0
+theme_override_fonts/font = ExtResource("1_00e7u")
+theme_override_font_sizes/font_size = 50
+
+[node name="LabelUltimaEscena" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 121.0
+offset_right = 316.0
+offset_bottom = 159.0
+theme_override_fonts/font = ExtResource("1_00e7u")
+theme_override_font_sizes/font_size = 50

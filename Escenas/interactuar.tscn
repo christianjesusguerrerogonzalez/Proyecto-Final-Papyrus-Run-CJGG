@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg2vemxiaamos"]
+
+[ext_resource type="Script" path="res://Scripts/interaccion.gd" id="1_nr4jl"]
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="2_pr53e"]
+[ext_resource type="AudioStream" uid="uid://2g5o3fa7ausd" path="res://Audios/charavoices.WAV" id="3_d0va6"]
+[ext_resource type="AudioStream" uid="uid://ds24kdwcn8att" path="res://Audios/clovervoice.WAV" id="4_i20k5"]
+[ext_resource type="AudioStream" uid="uid://chq2ordsu65dl" path="res://Audios/Generic 2 Dialogue Sound Effect (Undertale Character Voice Beeps).wav" id="5_82dp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b13ng"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_natwp"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[node name="Interactuar" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_nr4jl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b13ng")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+offset_left = -89.0
+offset_top = 59.0
+offset_right = 90.0
+offset_bottom = 101.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_natwp")
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045
+anchor_top = 0.143
+anchor_right = 0.045
+anchor_bottom = 0.143
+offset_left = -8.055
+offset_top = -0.00600052
+offset_right = 164.945
+offset_bottom = 28.994
+theme_override_fonts/normal_font = ExtResource("2_pr53e")
+theme_override_font_sizes/normal_font_size = 41
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+visible_characters = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="charavoice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_d0va6")
+
+[node name="clovervoice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_i20k5")
+
+[node name="genericvoice" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_82dp2")
+
+[connection signal="body_entered" from="." to="." method="_on_collisioninteractuar_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_collisioninteractuar_body_exited"]

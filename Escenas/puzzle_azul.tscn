@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://hl4b034py5s2"]
+
+[ext_resource type="Script" path="res://Scripts/puzzle_azul.gd" id="1_dbv4s"]
+[ext_resource type="Texture2D" uid="uid://duvgopj0iiu" path="res://Mapas/hotlands.png" id="1_rci46"]
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="2_uawoa"]
+[ext_resource type="PackedScene" uid="uid://b4kdasx3jhiid" path="res://Escenas/dano.tscn" id="4_f2cqp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j3ia6"]
+size = Vector2(87, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ltnt"]
+atlas = ExtResource("1_rci46")
+region = Rect2(784, 442, 56, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvh48"]
+atlas = ExtResource("2_uawoa")
+region = Rect2(233, 1223, 20, 2)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n4qmq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ltnt")
+}],
+"loop": true,
+"name": &"desactivado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvh48")
+}],
+"loop": true,
+"name": &"parado",
+"speed": 5.0
+}]
+
+[node name="PuzzleAzul" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_dbv4s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_j3ia6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(4.60417, 3.875)
+sprite_frames = SubResource("SpriteFrames_n4qmq")
+animation = &"parado"
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="daño" parent="." instance=ExtResource("4_f2cqp")]
+position = Vector2(-4, -11)
+damage_amount = 200.0
+
+[node name="CollisionShape2D" parent="daño" index="0"]
+position = Vector2(4, 11)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="daño"]

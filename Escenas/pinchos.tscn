@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://wgsdr02i15jw"]
+
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="1_4nelr"]
+[ext_resource type="Script" path="res://Scripts/pinchos.gd" id="1_gx247"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgijh"]
+size = Vector2(20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k24k"]
+atlas = ExtResource("1_4nelr")
+region = Rect2(422, 436, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubcae"]
+atlas = ExtResource("1_4nelr")
+region = Rect2(443, 437, 20, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sao1n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k24k")
+}],
+"loop": true,
+"name": &"activado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubcae")
+}],
+"loop": true,
+"name": &"desactivado",
+"speed": 5.0
+}]
+
+[node name="Pinchos" type="StaticBody2D"]
+z_index = -1
+script = ExtResource("1_gx247")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_pgijh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_sao1n")
+animation = &"desactivado"

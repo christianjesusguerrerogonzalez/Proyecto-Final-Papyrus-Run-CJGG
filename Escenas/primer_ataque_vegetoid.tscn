@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://brj2pmqwyc54c"]
+
+[ext_resource type="Script" path="res://Scripts/primer_ataque_vegetoid.gd" id="1_uxxhw"]
+[ext_resource type="Texture2D" uid="uid://bkflcjephdsfg" path="res://Sprites/vegetoidataque (1).png" id="2_0cqpk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahtn8"]
+atlas = ExtResource("2_0cqpk")
+region = Rect2(173, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6owx"]
+atlas = ExtResource("2_0cqpk")
+region = Rect2(87, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g2jr"]
+atlas = ExtResource("2_0cqpk")
+region = Rect2(115, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4btv2"]
+atlas = ExtResource("2_0cqpk")
+region = Rect2(56, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0vim"]
+atlas = ExtResource("2_0cqpk")
+region = Rect2(145, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygndx"]
+atlas = ExtResource("2_0cqpk")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tgd25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahtn8")
+}],
+"loop": true,
+"name": &"Cebolla",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6owx")
+}],
+"loop": true,
+"name": &"Mazorca",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g2jr")
+}],
+"loop": true,
+"name": &"Patata",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4btv2")
+}],
+"loop": true,
+"name": &"Platano",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0vim")
+}],
+"loop": true,
+"name": &"Tomate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygndx")
+}],
+"loop": true,
+"name": &"Zanahoria",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31cbj"]
+size = Vector2(19, 25)
+
+[node name="PrimerAtaqueVegetoid" type="Area2D"]
+scale = Vector2(2.70968, 2.71036)
+script = ExtResource("1_uxxhw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tgd25")
+animation = &"Zanahoria"
+autoplay = "Zanahoria"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_31cbj")
+
+[connection signal="body_entered" from="." to="." method="_on_proyectil_body_entered"]

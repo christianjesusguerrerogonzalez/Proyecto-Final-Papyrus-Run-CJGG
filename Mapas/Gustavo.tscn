@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://bffo1o7cw6m7d"]
+
+[ext_resource type="PackedScene" uid="uid://c45sgu6a4nrso" path="res://Mapas/maparuinas.tscn" id="1_uuatg"]
+[ext_resource type="Shader" uid="uid://dpdjgi0engwx8" path="res://resources/shader.tres" id="3_ckp5c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ojiy"]
+size = Vector2(61, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajtbg"]
+size = Vector2(180.5, 100)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kcyx3"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vn462"]
+noise = SubResource("FastNoiseLite_kcyx3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_eomsl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iuov2"]
+seamless = true
+noise = SubResource("FastNoiseLite_eomsl")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e1024"]
+shader = ExtResource("3_ckp5c")
+shader_parameter/Scroll1 = Vector2(0.2, -0.2)
+shader_parameter/Scroll2 = Vector2(0.15, 0.3)
+shader_parameter/DistortionStrength = 0.01
+shader_parameter/Tone = Color(0.372458, 0.567748, 1, 1)
+shader_parameter/wave_start = 0.5
+shader_parameter/wave_end = 0.6
+shader_parameter/ColorParameter = null
+shader_parameter/Noise1 = SubResource("NoiseTexture2D_vn462")
+shader_parameter/Noise2 = SubResource("NoiseTexture2D_iuov2")
+
+[sub_resource type="Gradient" id="Gradient_cx4qs"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0.851114, 0.853994, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b2py2"]
+gradient = SubResource("Gradient_cx4qs")
+
+[node name="Gustavo" type="Node2D"]
+
+[node name="Background" parent="." instance=ExtResource("1_uuatg")]
+rendering_quadrant_size = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1350, -210)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(20.5, 20)
+shape = SubResource("RectangleShape2D_0ojiy")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(1350, -110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(20.5, 20)
+shape = SubResource("RectangleShape2D_0ojiy")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1590, -110)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(80, 40)
+shape = SubResource("RectangleShape2D_ajtbg")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(1668, -241)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(2, 31)
+shape = SubResource("RectangleShape2D_ajtbg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_e1024")
+position = Vector2(1370, -190)
+scale = Vector2(0.937246, 0.938999)
+texture = SubResource("GradientTexture2D_b2py2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_e1024")
+position = Vector2(1670, -90.476)
+scale = Vector2(2.81237, 0.953875)
+texture = SubResource("GradientTexture2D_b2py2")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_e1024")
+position = Vector2(1670, -210.262)
+scale = Vector2(2.81237, 1.57069)
+texture = SubResource("GradientTexture2D_b2py2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_e1024")
+position = Vector2(1370, -90)
+scale = Vector2(0.937246, 0.938999)
+texture = SubResource("GradientTexture2D_b2py2")

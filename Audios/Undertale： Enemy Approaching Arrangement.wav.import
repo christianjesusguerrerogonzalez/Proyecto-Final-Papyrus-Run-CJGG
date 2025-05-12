@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dbr68umk0now0"
+path="res://.godot/imported/Undertale： Enemy Approaching Arrangement.wav-22ac12330740530a6a51271fb9fb6d5b.sample"
+
+[deps]
+
+source_file="res://Audios/Undertale： Enemy Approaching Arrangement.wav"
+dest_files=["res://.godot/imported/Undertale： Enemy Approaching Arrangement.wav-22ac12330740530a6a51271fb9fb6d5b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

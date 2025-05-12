@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnh3pbt1y3xaj"]
+
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="1_pb4ws"]
+[ext_resource type="PackedScene" uid="uid://bg2vemxiaamos" path="res://Escenas/interactuar.tscn" id="3_8pdye"]
+
+[sub_resource type="GDScript" id="GDScript_tdci6"]
+script/source = "extends Area2D
+
+pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qobpi"]
+size = Vector2(20, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4pyg"]
+
+[node name="Cartel" type="Area2D"]
+z_index = -1
+collision_mask = 2
+script = SubResource("GDScript_tdci6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pb4ws")
+region_enabled = true
+region_rect = Rect2(338, 457, 20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_qobpi")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_x4pyg")
+
+[node name="Interactuar" parent="." instance=ExtResource("3_8pdye")]
+position = Vector2(0, 16)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cx3k7fjifx8gs"]
+
+[ext_resource type="Texture2D" uid="uid://tp6hlxt44r1q" path="res://Mapas/snowdinmap.png" id="1_0csbw"]
+[ext_resource type="Script" path="res://Scripts/hielo.gd" id="1_qmxgj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1bt3"]
+size = Vector2(81, 80)
+
+[node name="Hielo" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_qmxgj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(30.5, 30)
+scale = Vector2(4.05, 4)
+texture = ExtResource("1_0csbw")
+region_enabled = true
+region_rect = Rect2(484, 106, 20, 20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(30.5, 30)
+shape = SubResource("RectangleShape2D_c1bt3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

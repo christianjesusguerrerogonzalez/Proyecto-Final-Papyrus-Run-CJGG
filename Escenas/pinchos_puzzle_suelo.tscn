@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://diropgllewltv"]
+
+[ext_resource type="Script" path="res://Scripts/pinchos_puzzle_suelo.gd" id="1_voyxc"]
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="2_7qqi5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k24k"]
+atlas = ExtResource("2_7qqi5")
+region = Rect2(422, 436, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ubcae"]
+atlas = ExtResource("2_7qqi5")
+region = Rect2(443, 437, 20, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6s81e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k24k")
+}],
+"loop": true,
+"name": &"activado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ubcae")
+}],
+"loop": true,
+"name": &"desactivado",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jaum6"]
+
+[node name="PinchosPuzzleSuelo" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_voyxc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_6s81e")
+animation = &"activado"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jaum6")

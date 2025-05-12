@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://i8tpacsup328"]
+
+[ext_resource type="PackedScene" uid="uid://dpis8u5whgawu" path="res://Mapas/mapa_cueva_snowdin.tscn" id="1_ahmnb"]
+[ext_resource type="PackedScene" uid="uid://dvtd1daawvfm0" path="res://papyrus.tscn" id="2_jm3wv"]
+[ext_resource type="PackedScene" uid="uid://h88i2ontyo3t" path="res://Escenas/spawnpoint.tscn" id="3_b7rid"]
+[ext_resource type="PackedScene" uid="uid://6tfpogv5jd8j" path="res://Escenas/salto.tscn" id="4_xxqa2"]
+
+[node name="cueva_snowdin" type="Node2D"]
+position = Vector2(1, 0)
+
+[node name="MapaCuevaSnowdin" parent="." instance=ExtResource("1_ahmnb")]
+
+[node name="Spawnpoints" type="Node" parent="."]
+
+[node name="spawnpoint" parent="Spawnpoints" instance=ExtResource("3_b7rid")]
+position = Vector2(183, -12)
+
+[node name="Papyrus" parent="." instance=ExtResource("2_jm3wv")]
+position = Vector2(-2, 8)
+
+[node name="AreasTeletransporte" type="Node" parent="."]
+
+[node name="Carteles" type="Node" parent="."]
+
+[node name="TransicionNegro" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="TransicionNegro"]
+anchors_preset = -1
+anchor_left = -0.0347222
+anchor_top = -0.0617284
+anchor_right = -0.0347222
+anchor_bottom = -0.0617284
+offset_left = -1370.0
+offset_top = -349.0
+offset_right = -1330.0
+offset_bottom = -309.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Salto" parent="Items" instance=ExtResource("4_xxqa2")]
+position = Vector2(443, -1)
+
+[node name="Salto2" parent="Items" instance=ExtResource("4_xxqa2")]
+position = Vector2(475, -1)
+de_derecha_a_izquierda = true
+
+[node name="PuzzleAzules" type="Node" parent="."]
+
+[node name="DecoracionSprites" type="Node" parent="."]
+
+[node name="Backgrounds" type="Node" parent="."]
+
+[node name="Dialogos" type="Node" parent="."]
+
+[node name="Misiones" type="Node" parent="."]
+
+[node name="Animaciones" type="Node" parent="."]
+
+[node name="Enemigos" type="Node" parent="."]

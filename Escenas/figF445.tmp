@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwrjw2g2y4jv8"]
+
+[ext_resource type="Script" path="res://Scripts/fightingscene.gd" id="1_1rti8"]
+[ext_resource type="Texture2D" uid="uid://cgc1n04du82a" path="res://Imagenes/fightbutton.png" id="1_gqn2w"]
+[ext_resource type="Texture2D" uid="uid://5fifo3j32vub" path="res://Imagenes/mercybutton.jpg" id="2_r2xgj"]
+[ext_resource type="PackedScene" uid="uid://bt022wjas1rjp" path="res://Escenas/soul.tscn" id="3_uq60h"]
+[ext_resource type="Texture2D" uid="uid://srm6esi2nq46" path="res://Imagenes/fightbox.png" id="4_cxjby"]
+[ext_resource type="PackedScene" uid="uid://curra27w0fwm2" path="res://Escenas/froggit.tscn" id="5_bff0i"]
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="7_rhxgs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deurg"]
+size = Vector2(736.5, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqh0"]
+size = Vector2(739.5, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjnoj"]
+size = Vector2(18.5, 527)
+
+[node name="Fighting" type="Node2D"]
+script = ExtResource("1_1rti8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 311)
+scale = Vector2(0.1, 0.1)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Alma" parent="." instance=ExtResource("3_uq60h")]
+z_index = 3
+position = Vector2(853, 807)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Fightbox" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(552, 297)
+scale = Vector2(9.08025, 7.23418)
+texture = ExtResource("4_cxjby")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(551.75, 22)
+shape = SubResource("RectangleShape2D_deurg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(552.25, 573.5)
+shape = SubResource("RectangleShape2D_1aqh0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(199.75, 296.5)
+shape = SubResource("RectangleShape2D_cjnoj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(913, 292)
+shape = SubResource("RectangleShape2D_cjnoj")
+
+[node name="Froggit" parent="." instance=ExtResource("5_bff0i")]
+position = Vector2(116, -284)
+
+[node name="Fight" type="Button" parent="."]
+offset_left = 165.0
+offset_top = 796.0
+offset_right = 173.0
+offset_bottom = 804.0
+
+[node name="Fightbutton" type="Sprite2D" parent="Fight"]
+position = Vector2(4.00002, -5)
+scale = Vector2(0.866756, 0.870128)
+texture = ExtResource("1_gqn2w")
+
+[node name="Mercy" type="Button" parent="."]
+offset_left = 960.0
+offset_top = 786.0
+offset_right = 968.0
+offset_bottom = 794.0
+
+[node name="Mercybutton" type="Sprite2D" parent="Mercy"]
+position = Vector2(13, 4.99994)
+scale = Vector2(0.941, 0.87)
+texture = ExtResource("2_r2xgj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 638.0
+offset_right = 158.0
+offset_bottom = 664.0
+theme_override_fonts/font = ExtResource("7_rhxgs")
+theme_override_font_sizes/font_size = 60
+text = "PAPYRUS    LV1"

@@ -1,0 +1,101 @@
+[gd_scene load_steps=10 format=3 uid="uid://ck08v0a1rws6g"]
+
+[ext_resource type="Script" path="res://Scripts/game_over.gd" id="1_3rihb"]
+[ext_resource type="Texture2D" uid="uid://bejw1pnvpqes6" path="res://Imagenes/18218f5bd7215e8f2a7e1220abcd45e4.png" id="2_vlvrj"]
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="2_wqm21"]
+[ext_resource type="Texture2D" uid="uid://d06xb2tboit35" path="res://Imagenes/soul (1) (1).png" id="4_pkcq8"]
+[ext_resource type="AudioStream" uid="uid://bdgt4l1fyqlja" path="res://Escenas/Undertale-Determination-_Orchestral-Remake_.wav" id="5_n5wxl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi3m2"]
+bg_color = Color(0, 0, 0, 0.811765)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bijdp"]
+bg_color = Color(0, 0, 0, 0.811765)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w8m1"]
+atlas = ExtResource("4_pkcq8")
+region = Rect2(3, 0, 23, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6dt23"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w8m1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_3rihb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 2466.0
+offset_bottom = 1267.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 729.0
+offset_top = 595.0
+offset_right = 769.0
+offset_bottom = 647.0
+theme_override_fonts/font = ExtResource("2_wqm21")
+theme_override_font_sizes/font_size = 50
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+
+[node name="GameOver" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(983, 381)
+scale = Vector2(1.32456, 1.40909)
+texture = ExtResource("2_vlvrj")
+
+[node name="continue_button" type="Button" parent="CanvasLayer"]
+offset_left = 402.0
+offset_top = 682.0
+offset_right = 795.0
+offset_bottom = 812.0
+theme_override_fonts/font = ExtResource("2_wqm21")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_fi3m2")
+text = "Continuar"
+
+[node name="exit_button" type="Button" parent="CanvasLayer"]
+offset_left = 1100.0
+offset_top = 682.0
+offset_right = 1493.0
+offset_bottom = 812.0
+theme_override_fonts/font = ExtResource("2_wqm21")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_bijdp")
+text = "Salir"
+
+[node name="heart" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(351, 754)
+scale = Vector2(3.93478, 4.06)
+sprite_frames = SubResource("SpriteFrames_6dt23")
+animation = &"idle"
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+z_index = 20
+offset_left = -156.0
+offset_top = -76.0
+offset_right = 2548.0
+offset_bottom = 1338.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_n5wxl")
+autoplay = true
+max_distance = 10000.0

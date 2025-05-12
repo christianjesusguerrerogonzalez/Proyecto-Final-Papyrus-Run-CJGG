@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmo8u5637lcnq"]
+
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="1_0rfx3"]
+[ext_resource type="Script" path="res://Scripts/interruptor_tapon.gd" id="1_3qiut"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6favp"]
+atlas = ExtResource("1_0rfx3")
+region = Rect2(464, 457, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5rso"]
+atlas = ExtResource("1_0rfx3")
+region = Rect2(443, 457, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lugvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6favp")
+}],
+"loop": true,
+"name": &"activado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5rso")
+}],
+"loop": true,
+"name": &"desactivado",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adac6"]
+size = Vector2(9, 40)
+
+[node name="InterruptorTapon" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_3qiut")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_lugvl")
+animation = &"desactivado"
+autoplay = "desactivado"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 12)
+shape = SubResource("RectangleShape2D_adac6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

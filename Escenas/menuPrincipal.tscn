@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=3 uid="uid://ccpafqrhxl2gm"]
+
+[ext_resource type="Script" path="res://Scripts/menu_principal.gd" id="1_6sy6f"]
+[ext_resource type="Texture2D" uid="uid://d06xb2tboit35" path="res://Imagenes/soul (1) (1).png" id="2_76due"]
+[ext_resource type="Texture2D" uid="uid://dcnqbv3bh7w22" path="res://Sprites/titulo (1).png" id="2_cdt25"]
+[ext_resource type="Texture2D" uid="uid://c6ml8m1k7i7uy" path="res://Sprites/titulo2 (1).png" id="3_u4g1e"]
+[ext_resource type="Texture2D" uid="uid://fdtpfj8x6tfb" path="res://Sprites/titulo3 (1).png" id="4_gcm33"]
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="5_vrpf7"]
+[ext_resource type="AudioStream" uid="uid://dmmmqlti7hvww" path="res://Undertale-Exit-sound-effect.wav" id="7_m88fh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w8m1"]
+atlas = ExtResource("2_76due")
+region = Rect2(3, 0, 23, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_olnea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w8m1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2rut5"]
+bg_color = Color(0, 0, 0, 0.811765)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_heegq"]
+bg_color = Color(0, 0, 0, 0.811765)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6sy6f")
+
+[node name="heart" type="AnimatedSprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+position = Vector2(755, 1897)
+scale = Vector2(3.93478, 4.06)
+sprite_frames = SubResource("SpriteFrames_olnea")
+animation = &"idle"
+
+[node name="Titulo(1)" type="Sprite2D" parent="."]
+position = Vector2(1023, 376)
+scale = Vector2(1.51176, 1.58974)
+texture = ExtResource("2_cdt25")
+
+[node name="Titulo2(1)" type="Sprite2D" parent="."]
+position = Vector2(992, 469)
+scale = Vector2(0.731106, 0.73622)
+texture = ExtResource("3_u4g1e")
+
+[node name="Titulo3(1)" type="Sprite2D" parent="."]
+position = Vector2(499, 378)
+texture = ExtResource("4_gcm33")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 644.0
+offset_top = 522.0
+offset_right = 1567.0
+offset_bottom = 719.0
+theme_override_fonts/font = ExtResource("5_vrpf7")
+theme_override_font_sizes/font_size = 45
+text = "Controles:
+Flechas - Mover / Moverse en botones
+Z - Interactuar / Interactuar con botones
+X - Cerrar"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 2588.0
+offset_bottom = 1331.0
+color = Color(0, 0, 0, 1)
+
+[node name="play_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 415.0
+offset_top = 788.0
+offset_right = 808.0
+offset_bottom = 918.0
+theme_override_fonts/font = ExtResource("5_vrpf7")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_2rut5")
+text = "Jugar"
+
+[node name="reset_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1113.0
+offset_top = 788.0
+offset_right = 1506.0
+offset_bottom = 918.0
+theme_override_fonts/font = ExtResource("5_vrpf7")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_heegq")
+text = "Resetear
+"
+
+[node name="FadeRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1993.0
+offset_bottom = 1225.0
+
+[node name="ExitAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_m88fh")
+max_distance = 8e+11

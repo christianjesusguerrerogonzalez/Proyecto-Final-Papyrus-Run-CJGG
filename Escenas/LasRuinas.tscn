@@ -1,0 +1,455 @@
+[gd_scene load_steps=27 format=3 uid="uid://bbeqysjjh6um0"]
+
+[ext_resource type="PackedScene" uid="uid://h88i2ontyo3t" path="res://Escenas/spawnpoint.tscn" id="1_bwu02"]
+[ext_resource type="Script" path="res://Scripts/las_ruinas.gd" id="1_de1l0"]
+[ext_resource type="PackedScene" uid="uid://dvtd1daawvfm0" path="res://papyrus.tscn" id="2_r51ry"]
+[ext_resource type="PackedScene" uid="uid://btbtonhxhvhse" path="res://Escenas/desaparecerflowey.tscn" id="3_1rk4v"]
+[ext_resource type="PackedScene" uid="uid://bnh3pbt1y3xaj" path="res://Escenas/cartel.tscn" id="6_6t2ha"]
+[ext_resource type="PackedScene" uid="uid://bvqaa760tch0l" path="res://Escenas/teletransporte.tscn" id="6_bgg3w"]
+[ext_resource type="PackedScene" uid="uid://wgsdr02i15jw" path="res://Escenas/pinchos.tscn" id="6_cljui"]
+[ext_resource type="PackedScene" uid="uid://dn7qcv8asxwjr" path="res://Escenas/interruptor_trampa.tscn" id="6_cti76"]
+[ext_resource type="PackedScene" uid="uid://gmeliajv66sw" path="res://Escenas/snowdin.tscn" id="6_kgm2k"]
+[ext_resource type="PackedScene" uid="uid://cmo8u5637lcnq" path="res://Escenas/interruptor_tapon.tscn" id="6_kl1fa"]
+[ext_resource type="PackedScene" uid="uid://1a730jns7uda" path="res://Escenas/roca.tscn" id="7_b5aov"]
+[ext_resource type="PackedScene" uid="uid://cc6jmh58pawhg" path="res://Escenas/boton.tscn" id="8_hio0l"]
+[ext_resource type="PackedScene" uid="uid://bio1xl86wjguh" path="res://Escenas/interruptorroca.tscn" id="10_jli2h"]
+[ext_resource type="PackedScene" uid="uid://hl4b034py5s2" path="res://Escenas/puzzle_azul.tscn" id="12_3g4k2"]
+[ext_resource type="PackedScene" uid="uid://cmabkr7fievv0" path="res://ElementosAnimados/antorcha.tscn" id="13_lrwmy"]
+[ext_resource type="PackedScene" uid="uid://bbvmg3jrjfqye" path="res://Escenas/tapon.tscn" id="13_vmn6r"]
+[ext_resource type="PackedScene" uid="uid://cdad4egg5s7po" path="res://Escenas/area_laberinto.tscn" id="16_jd5tc"]
+[ext_resource type="AudioStream" uid="uid://cdpjnjn7xr4g3" path="res://Undertale-Ruins-_Orchestral-Remix_.wav" id="17_18mul"]
+[ext_resource type="PackedScene" uid="uid://cgjsbbbh4o5jt" path="res://Escenas/dialogos.tscn" id="19_gl6n6"]
+[ext_resource type="PackedScene" uid="uid://c45sgu6a4nrso" path="res://Mapas/maparuinas.tscn" id="20_pdbq1"]
+[ext_resource type="PackedScene" uid="uid://boejs0cvlns1t" path="res://Escenas/teletransporte_a_otra_escena.tscn" id="22_3vsry"]
+[ext_resource type="PackedScene" uid="uid://brfqje8qleapm" path="res://Escenas/area_enemigos.tscn" id="22_5t7bt"]
+[ext_resource type="PackedScene" uid="uid://dw2c65v8mh7cr" path="res://Escenas/misiones.tscn" id="22_r1q8y"]
+[ext_resource type="PackedScene" uid="uid://bwrjw2g2y4jv8" path="res://Escenas/fightingfroggit.tscn" id="23_8l41n"]
+[ext_resource type="PackedScene" uid="uid://df7nsrh0dp3jh" path="res://Escenas/fighting_whimsun.tscn" id="24_ta5uk"]
+[ext_resource type="PackedScene" uid="uid://b2ox1ait0fk2u" path="res://Escenas/fighting_vegetoid.tscn" id="25_50tlg"]
+
+[node name="LasRuinas" type="Node2D"]
+rotation = -0.00864946
+script = ExtResource("1_de1l0")
+
+[node name="Spawnpoints" type="Node" parent="."]
+
+[node name="spawnpoint" parent="Spawnpoints" instance=ExtResource("1_bwu02")]
+position = Vector2(-127, -79)
+
+[node name="spawnpoint2" parent="Spawnpoints" instance=ExtResource("1_bwu02")]
+position = Vector2(2215, -244)
+
+[node name="spawnpoint3" parent="Spawnpoints" instance=ExtResource("1_bwu02")]
+position = Vector2(2488, 738)
+
+[node name="spawnpoint4" parent="Spawnpoints" instance=ExtResource("1_bwu02")]
+position = Vector2(4809, 1161)
+
+[node name="Papyrus" parent="." instance=ExtResource("2_r51ry")]
+position = Vector2(-84, -37)
+collision_layer = 131
+collision_mask = 131
+
+[node name="AreasTeletransporte" type="Node" parent="."]
+
+[node name="AreaTeletransporte" parent="AreasTeletransporte" instance=ExtResource("6_bgg3w")]
+position = Vector2(-70, -456)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte" index="1"]
+position = Vector2(1210, 393)
+
+[node name="AreaTeletransporte2" parent="AreasTeletransporte" instance=ExtResource("6_bgg3w")]
+position = Vector2(1140, -20)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte2" index="1"]
+position = Vector2(-1206, -357)
+
+[node name="AreaTeletransporte3" parent="AreasTeletransporte" instance=ExtResource("6_bgg3w")]
+position = Vector2(2439, -182)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte3" index="1"]
+position = Vector2(-1512, 950)
+
+[node name="AreaTeletransporte4" parent="AreasTeletransporte" instance=ExtResource("6_bgg3w")]
+position = Vector2(881, 761)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte4" index="1"]
+position = Vector2(1514, -928)
+
+[node name="AreaTeletransporte5" parent="AreasTeletransporte" instance=ExtResource("6_bgg3w")]
+position = Vector2(1683, 760)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte5" index="1"]
+position = Vector2(797, 11)
+
+[node name="AreaTeletransporte6" parent="AreasTeletransporte" instance=ExtResource("6_bgg3w")]
+position = Vector2(2374, 761)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte6" index="1"]
+position = Vector2(-739, 8)
+
+[node name="AreaTeletransporte7" parent="AreasTeletransporte" instance=ExtResource("6_bgg3w")]
+position = Vector2(4078, 1359)
+
+[node name="PuntoDeTeletransporte" parent="AreasTeletransporte/AreaTeletransporte7" index="1"]
+position = Vector2(660, 156)
+
+[node name="TeletransporteSnowdin" parent="AreasTeletransporte" instance=ExtResource("22_3vsry")]
+position = Vector2(4711, 1109)
+rotation = -0.00864946
+escena_teletransportada = ExtResource("6_kgm2k")
+
+[node name="Carteles" type="Node" parent="."]
+
+[node name="Cartel" parent="Carteles" instance=ExtResource("6_6t2ha")]
+position = Vector2(1238, -158)
+
+[node name="Interactuar" parent="Carteles/Cartel" index="4"]
+texto = ["<-- Entrada (Cuidado, humanos pueden caer)", "Ruinas (Salida a Snowdin) --> "]
+
+[node name="Cartel2" parent="Carteles" instance=ExtResource("6_6t2ha")]
+position = Vector2(1049, -158)
+
+[node name="Interactuar" parent="Carteles/Cartel2" index="4"]
+texto = ["\"No pises las flores.\""]
+
+[node name="Cartel4" parent="Carteles" instance=ExtResource("6_6t2ha")]
+position = Vector2(1446, -192)
+
+[node name="Interactuar" parent="Carteles/Cartel4" index="4"]
+texto = ["\"Empuja la roca hasta su botón.\""]
+
+[node name="Cartel5" parent="Carteles" instance=ExtResource("6_6t2ha")]
+position = Vector2(2534, 727)
+
+[node name="Interactuar" parent="Carteles/Cartel5" index="4"]
+texto = ["\"Una de las palancas llevan al final.\""]
+
+[node name="TransicionNegro" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="TransicionNegro"]
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Items" type="Node" parent="."]
+
+[node name="Roca" parent="Items" instance=ExtResource("7_b5aov")]
+position = Vector2(1549, -143)
+
+[node name="Roca2" parent="Items" instance=ExtResource("7_b5aov")]
+position = Vector2(1942, -139)
+
+[node name="Boton" parent="Items" instance=ExtResource("8_hio0l")]
+position = Vector2(1812, -139)
+pinchos_node_path = NodePath("../Pinchos")
+
+[node name="Pinchos" parent="Items" instance=ExtResource("6_cljui")]
+position = Vector2(1889, -139)
+
+[node name="InterruptorRoca" parent="Items" instance=ExtResource("10_jli2h")]
+position = Vector2(1527, -283)
+roca_node_path = NodePath("../Roca")
+
+[node name="Boton2" parent="Items" instance=ExtResource("8_hio0l")]
+position = Vector2(2117, -58)
+pinchos_node_path = NodePath("../Pinchos2")
+
+[node name="Pinchos2" parent="Items" instance=ExtResource("6_cljui")]
+position = Vector2(2167, -179)
+
+[node name="InterruptorRoca2" parent="Items" instance=ExtResource("10_jli2h")]
+position = Vector2(1891, -182)
+roca_node_path = NodePath("../Roca2")
+
+[node name="Boton3" parent="Items" instance=ExtResource("8_hio0l")]
+position = Vector2(1556, 759)
+pinchos_node_path = NodePath("../Pinchos3")
+
+[node name="Pinchos3" parent="Items" instance=ExtResource("6_cljui")]
+position = Vector2(1612, 760)
+
+[node name="Roca3" parent="Items" instance=ExtResource("7_b5aov")]
+position = Vector2(1025, 759)
+
+[node name="InterruptorRoca3" parent="Items" instance=ExtResource("10_jli2h")]
+position = Vector2(1049, 677)
+roca_node_path = NodePath("../Roca3")
+
+[node name="Pinchos4" parent="Items" instance=ExtResource("6_cljui")]
+position = Vector2(1179, 1360)
+
+[node name="Boton4" parent="Items" instance=ExtResource("8_hio0l")]
+position = Vector2(1248, 1362)
+pinchos_node_path = NodePath("../Pinchos4")
+
+[node name="PuzzleAzules" type="Node" parent="."]
+
+[node name="PuzzleAzul4" parent="PuzzleAzules" instance=ExtResource("12_3g4k2")]
+position = Vector2(1337, 1075)
+
+[node name="Marker2D" parent="PuzzleAzules/PuzzleAzul4" index="2"]
+position = Vector2(4, -313)
+
+[node name="PuzzleAzul3" parent="PuzzleAzules" instance=ExtResource("12_3g4k2")]
+position = Vector2(1339, 1006)
+
+[node name="Marker2D" parent="PuzzleAzules/PuzzleAzul3" index="2"]
+position = Vector2(2, -245)
+
+[node name="PuzzleAzul2" parent="PuzzleAzules" instance=ExtResource("12_3g4k2")]
+position = Vector2(1341, 935)
+
+[node name="Marker2D" parent="PuzzleAzules/PuzzleAzul2" index="2"]
+position = Vector2(0, -175)
+
+[node name="PuzzleAzul" parent="PuzzleAzules" instance=ExtResource("12_3g4k2")]
+position = Vector2(1340, 862)
+
+[node name="Marker2D" parent="PuzzleAzules/PuzzleAzul" index="2"]
+position = Vector2(1, -104)
+
+[node name="CollisionShape2D" parent="PuzzleAzules/PuzzleAzul/daño" index="0"]
+position = Vector2(5, 11)
+
+[node name="DecoracionSprites" type="Node" parent="."]
+
+[node name="Antorcha" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(982, 667)
+
+[node name="Antorcha2" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(1323, 667)
+
+[node name="Antorcha3" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(1289, -230)
+
+[node name="Antorcha4" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(1109, -230)
+
+[node name="Antorcha5" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(1549, -289)
+
+[node name="Antorcha6" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(1828, -289)
+
+[node name="Antorcha7" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(2309, -290)
+
+[node name="Antorcha8" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(1583, 667)
+
+[node name="Antorcha9" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(3449, 1294)
+
+[node name="Antorcha10" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(3612, 1294)
+
+[node name="Antorcha11" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(3782, 1294)
+
+[node name="Antorcha12" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(3948, 1295)
+
+[node name="Antorcha13" parent="DecoracionSprites" instance=ExtResource("13_lrwmy")]
+position = Vector2(4665, 1135)
+
+[node name="desaparecer" parent="DecoracionSprites" instance=ExtResource("3_1rk4v")]
+position = Vector2(-74.2288, -257.368)
+rotation = -0.00864946
+
+[node name="Tapones" type="Node" parent="."]
+
+[node name="Tapon" parent="Tapones" instance=ExtResource("13_vmn6r")]
+position = Vector2(1508.5, 788)
+scale = Vector2(0.399054, 2.73864)
+
+[node name="InterruptorTapon" parent="Tapones" instance=ExtResource("6_kl1fa")]
+position = Vector2(1124, 1295)
+tapon_path = NodePath("../Tapon")
+
+[node name="Tapon2" parent="Tapones" instance=ExtResource("13_vmn6r")]
+position = Vector2(3204, 1533)
+
+[node name="InterruptorTapon2" parent="Tapones" instance=ExtResource("6_kl1fa")]
+position = Vector2(2782, 1324)
+tapon_path = NodePath("../Tapon2")
+
+[node name="Laberinto" type="Node" parent="."]
+
+[node name="AreaLaberinto" parent="Laberinto" node_paths=PackedStringArray("camera_2d") instance=ExtResource("16_jd5tc")]
+position = Vector2(2247, 224)
+camera_2d = NodePath("../../Papyrus/Camera2D")
+
+[node name="CollisionShape2D" parent="Laberinto/AreaLaberinto" index="0"]
+position = Vector2(771, 623.5)
+
+[node name="InterruptorTrampa" parent="Laberinto" instance=ExtResource("6_cti76")]
+position = Vector2(3109, 778)
+
+[node name="CollisionShape2D" parent="Laberinto/InterruptorTrampa/daño" index="0"]
+position = Vector2(0, 18.375)
+
+[node name="Marker2D" parent="Laberinto/InterruptorTrampa" index="3"]
+position = Vector2(-629, -7)
+
+[node name="InterruptorTrampa2" parent="Laberinto" instance=ExtResource("6_cti76")]
+position = Vector2(3103, 338)
+
+[node name="Marker2D" parent="Laberinto/InterruptorTrampa2" index="3"]
+position = Vector2(-623, 433)
+
+[node name="InterruptorTrampa3" parent="Laberinto" instance=ExtResource("6_cti76")]
+position = Vector2(3161, 1239)
+
+[node name="Marker2D" parent="Laberinto/InterruptorTrampa3" index="3"]
+position = Vector2(-681, -468)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(22, -38)
+stream = ExtResource("17_18mul")
+volume_db = -8.814
+autoplay = true
+max_distance = 4e+07
+
+[node name="Backgrounds" type="Node" parent="."]
+
+[node name="Background" parent="Backgrounds" instance=ExtResource("20_pdbq1")]
+process_mode = 3
+position = Vector2(-2, 1)
+
+[node name="Dialogos" type="Node" parent="."]
+
+[node name="Dialogo" parent="Dialogos" instance=ExtResource("19_gl6n6")]
+position = Vector2(-69, -246)
+rotation = -0.00864946
+collision_layer = 3
+collision_mask = 3
+texto = ["*GENERIC*(Después de una caida larga, escuchas algo.;Es una conversación..)", "*CHARA** Ya te has despertado, ¿estás bien?", "*CHARA** No te duele nada, ¿no?", "*CLOVER** Claro que no le duele nada, su HP está;  lleno.", "*CLOVER** Pero... ¿no debería de haber caído;  un humano?", "*CHARA** ...", "*CHARA** ¿Dónde está Frisk?"]
+dialog_id = "1"
+
+[node name="Dialogo2" parent="Dialogos" instance=ExtResource("19_gl6n6")]
+position = Vector2(1141, -153)
+rotation = -0.00864946
+texto = ["*CLOVER** Disculpame, no nos hemos introducido;  me llamo Clover.", "*CHARA** ...Chara.", "*CHARA** ¿Cuál es tu nombre?", "*GENERIC*¿Qué elige Papyrus?"]
+boton_opcion_1 = "Papyrus"
+boton_opcion_2 = "..."
+opcion1 = ["*CLOVER** ¡Encantado Papyrus!", "*CHARA** Deberías de seguir."]
+opcion2 = ["*CLOVER** ...¿Hola?", "*CHARA** Sigue hacia adelante."]
+dialog_id = "2"
+
+[node name="Dialogo9" parent="Dialogos" instance=ExtResource("19_gl6n6")]
+position = Vector2(1388, -107)
+rotation = -0.00864946
+texto = ["*CLOVER** Oye.. te has saltado carteles..;  ¿No deberías de leerlos?", "*GENERIC*(Pulsa z para interactuar con objetos)"]
+dialog_id = "9"
+
+[node name="Dialogo3" parent="Dialogos" instance=ExtResource("19_gl6n6")]
+position = Vector2(2260, -15)
+texto = ["*CLOVER** No recuerdo que Las Ruinas fuesen;  así... ¿Porqué han cambiado tanto?", "*CHARA** Sé lo mismo que tú, nada."]
+dialog_id = "3"
+
+[node name="Dialogo4" parent="Dialogos" instance=ExtResource("19_gl6n6")]
+position = Vector2(1272, 799)
+rotation = -0.00864946
+texto = ["*CLOVER** Hm, este puzzle parece fácil.", "*CHARA** ¿Necesitas ayuda?", "*GENERIC*¿Qué elige Papyrus?"]
+boton_opcion_1 = "Si"
+boton_opcion_2 = "No"
+opcion1 = ["*CHARA** Intenta empujando la roca hacia ese camino ;  de abajo.", "*CHARA** Deberías de poder desbloquear algo.", "*CLOVER** ¡HEY, QUERÍA DECIRLO YO!", "*CHARA** Demasiado lento.."]
+opcion2 = ["*CHARA** Vale, estaré esperando"]
+dialog_id = "4"
+
+[node name="Dialogo5" parent="Dialogos" instance=ExtResource("19_gl6n6")]
+position = Vector2(2709, 853)
+rotation = -0.00864946
+texto = ["*CHARA** Un laberinto...", "*CHARA** No se como ayudar, ¿intenta ir por el medio?", "*GENERIC*¿Qué elige Papyrus?"]
+boton_opcion_1 = "Ir al medio"
+boton_opcion_2 = "No ir al medio"
+opcion1 = ["*CLOVER** Aún así, ten cuidado, puede haber;  trampas."]
+opcion2 = ["*CHARA** Busca algún camino entonces.", "*CLOVER** Pero ten cuidado, puede haber alguna;  trampa."]
+dialog_id = "5"
+
+[node name="Dialogo6" parent="Dialogos" instance=ExtResource("19_gl6n6")]
+position = Vector2(3014, 1504)
+texto = ["*CHARA** Ya estamos apunto de salir de las ruinas..."]
+dialog_id = "6"
+
+[node name="Dialogo7" parent="Dialogos" instance=ExtResource("19_gl6n6")]
+position = Vector2(3628, 1504)
+texto = ["*CLOVER** ...¿Por qué no nos ves?", "*CHARA** No estamos vivos Clover, obviamente no nos;  puede ver.", "*CHARA** La pregunta es, ¿cómo nos puede oír?"]
+boton_opcion_1 = "Papyrus"
+boton_opcion_2 = "Chara"
+opcion1 = ["* .... (Conozco ese nombre)"]
+opcion2 = ["* ...¿Qué has dicho?"]
+dialog_id = "7"
+
+[node name="Dialogo8" parent="Dialogos" instance=ExtResource("19_gl6n6")]
+position = Vector2(4746, 1402)
+rotation = -0.00864946
+texto = ["*CHARA** Antes de que salgas de las ruinas...", "*CHARA** Quiero preguntarte algo.", "*CHARA** Esto era solo el principio...;  ¿Estás listo para seguir?", "*CLOVER** Si no, tómate tu tiempo.", "*GENERIC*¿Qué elige Papyrus?"]
+boton_opcion_1 = "Seguir"
+boton_opcion_2 = "Descansar"
+opcion1 = ["*CHARA** Bien, sigue adelante, entraremos en;  Snowdin."]
+opcion2 = ["*CLOVER** Descansa un poco, tomate tu tiempo,;  esta zona es segura.", "*CLOVER** Saldremos cuando estés preparado."]
+dialog_id = "8"
+
+[node name="Misiones" type="Node" parent="."]
+
+[node name="Misiones" parent="Misiones" instance=ExtResource("22_r1q8y")]
+position = Vector2(-171, -258)
+rotation = -0.00864946
+mision_text = "Sal de la cueva"
+
+[node name="Misiones2" parent="Misiones" instance=ExtResource("22_r1q8y")]
+position = Vector2(1440, -223)
+mision_text = "Encuentra una forma de escapar de las ruinas"
+
+[node name="AreasEnemigos" type="Node" parent="."]
+
+[node name="AreaEnemigos" parent="AreasEnemigos" instance=ExtResource("22_5t7bt")]
+visible = false
+light_mask = 64
+visibility_layer = 2
+position = Vector2(473, -404)
+rotation = -0.00864946
+collision_layer = 128
+collision_mask = 128
+enemy_scenes = Array[PackedScene]([ExtResource("23_8l41n"), ExtResource("24_ta5uk"), ExtResource("25_50tlg")])
+
+[node name="CollisionShape2D" parent="AreasEnemigos/AreaEnemigos" index="0"]
+light_mask = 64
+visibility_layer = 64
+position = Vector2(1848.2, 1137.5)
+scale = Vector2(1, 24.0857)
+
+[editable path="Papyrus"]
+[editable path="AreasTeletransporte/AreaTeletransporte"]
+[editable path="AreasTeletransporte/AreaTeletransporte2"]
+[editable path="AreasTeletransporte/AreaTeletransporte3"]
+[editable path="AreasTeletransporte/AreaTeletransporte4"]
+[editable path="AreasTeletransporte/AreaTeletransporte5"]
+[editable path="AreasTeletransporte/AreaTeletransporte6"]
+[editable path="AreasTeletransporte/AreaTeletransporte7"]
+[editable path="Carteles/Cartel"]
+[editable path="Carteles/Cartel/Interactuar"]
+[editable path="Carteles/Cartel2"]
+[editable path="Carteles/Cartel2/Interactuar"]
+[editable path="Carteles/Cartel4"]
+[editable path="Carteles/Cartel4/Interactuar"]
+[editable path="Carteles/Cartel5"]
+[editable path="Carteles/Cartel5/Interactuar"]
+[editable path="PuzzleAzules/PuzzleAzul4"]
+[editable path="PuzzleAzules/PuzzleAzul4/daño"]
+[editable path="PuzzleAzules/PuzzleAzul3"]
+[editable path="PuzzleAzules/PuzzleAzul3/daño"]
+[editable path="PuzzleAzules/PuzzleAzul2"]
+[editable path="PuzzleAzules/PuzzleAzul2/daño"]
+[editable path="PuzzleAzules/PuzzleAzul"]
+[editable path="PuzzleAzules/PuzzleAzul/daño"]
+[editable path="Laberinto/AreaLaberinto"]
+[editable path="Laberinto/InterruptorTrampa"]
+[editable path="Laberinto/InterruptorTrampa/daño"]
+[editable path="Laberinto/InterruptorTrampa2"]
+[editable path="Laberinto/InterruptorTrampa2/daño"]
+[editable path="Laberinto/InterruptorTrampa3"]
+[editable path="Laberinto/InterruptorTrampa3/daño"]
+[editable path="AreasEnemigos/AreaEnemigos"]

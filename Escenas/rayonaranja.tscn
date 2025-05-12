@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbee2r6v1by02"]
+
+[ext_resource type="Texture2D" uid="uid://cgptj2pdgt1e6" path="res://Sprites/rayonaranja.png" id="1_efn31"]
+[ext_resource type="Script" path="res://Scripts/rayonaranja.gd" id="1_g861t"]
+[ext_resource type="PackedScene" uid="uid://b4kdasx3jhiid" path="res://Escenas/dano.tscn" id="2_8afph"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da77v"]
+size = Vector2(158, 4)
+
+[node name="RayoNaranja" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_g861t")
+
+[node name="Rayonaranja" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_efn31")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_da77v")
+
+[node name="dano" parent="." instance=ExtResource("2_8afph")]
+position = Vector2(0, -4)
+damage_amount = 50.0
+
+[node name="CollisionShape2D" parent="dano" index="0"]
+position = Vector2(0, 3)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+
+[editable path="dano"]

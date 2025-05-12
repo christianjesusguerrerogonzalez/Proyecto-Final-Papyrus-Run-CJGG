@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://brfqje8qleapm"]
+
+[ext_resource type="Script" path="res://Scripts/area_enemigos.gd" id="1_qq12m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg3vq"]
+size = Vector2(3716.41, 114.454)
+
+[node name="AreaEnemigos" type="Area2D"]
+process_mode = 3
+script = ExtResource("1_qq12m")
+enemy_scenes = Array[PackedScene]([null])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vg3vq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

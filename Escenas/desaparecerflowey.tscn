@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://btbtonhxhvhse"]
+
+[ext_resource type="Script" path="res://Scripts/desapareceflowey.gd" id="1_tv71u"]
+[ext_resource type="Texture2D" uid="uid://6ale3xm0xm8s" path="res://Sprites/flowey.png" id="2_m3gyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3jva"]
+size = Vector2(230, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnaa3"]
+atlas = ExtResource("2_m3gyx")
+region = Rect2(0, 204, 27, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xc8dl"]
+atlas = ExtResource("2_m3gyx")
+region = Rect2(27, 204, 27, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bcouf"]
+atlas = ExtResource("2_m3gyx")
+region = Rect2(54, 204, 27, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oyer"]
+atlas = ExtResource("2_m3gyx")
+region = Rect2(81, 204, 27, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vcdv"]
+atlas = ExtResource("2_m3gyx")
+region = Rect2(108, 204, 27, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ybb1"]
+atlas = ExtResource("2_m3gyx")
+region = Rect2(135, 204, 27, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmmqo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnaa3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xc8dl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bcouf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oyer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vcdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ybb1")
+}],
+"loop": false,
+"name": &"Desaparece",
+"speed": 15.0
+}]
+
+[node name="desaparecerflowey" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_tv71u")
+
+[node name="activacion" type="CollisionShape2D" parent="."]
+position = Vector2(20, 100)
+shape = SubResource("RectangleShape2D_k3jva")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xmmqo")
+animation = &"Desaparece"

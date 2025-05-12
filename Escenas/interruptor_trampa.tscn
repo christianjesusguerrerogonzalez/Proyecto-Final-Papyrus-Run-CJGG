@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn7qcv8asxwjr"]
+
+[ext_resource type="Script" path="res://Scripts/interruptor_trampa.gd" id="1_git4t"]
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="1_ipiyd"]
+[ext_resource type="PackedScene" uid="uid://b4kdasx3jhiid" path="res://Escenas/dano.tscn" id="2_djbf4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwwsl"]
+atlas = ExtResource("1_ipiyd")
+region = Rect2(464, 457, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm3r8"]
+atlas = ExtResource("1_ipiyd")
+region = Rect2(443, 457, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k8k2o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwwsl")
+}],
+"loop": true,
+"name": &"activado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm3r8")
+}],
+"loop": true,
+"name": &"desactivado",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oijdy"]
+size = Vector2(12, 48)
+
+[node name="InterruptorTrampa" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_git4t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_k8k2o")
+animation = &"activado"
+autoplay = "desactivado"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = -1
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_oijdy")
+
+[node name="daño" parent="." instance=ExtResource("2_djbf4")]
+position = Vector2(0, 14)
+damage_amount = 300.0
+
+[node name="CollisionShape2D" parent="daño" index="0"]
+position = Vector2(0, 23)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="daño"]

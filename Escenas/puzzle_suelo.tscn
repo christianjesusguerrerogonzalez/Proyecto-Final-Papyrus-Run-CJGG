@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://feuu2t5755k0"]
+
+[ext_resource type="Script" path="res://Scripts/puzzle_suelo.gd" id="1_iy1kh"]
+[ext_resource type="Texture2D" uid="uid://tp6hlxt44r1q" path="res://Mapas/snowdinmap.png" id="1_ncxp7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyeo8"]
+atlas = ExtResource("1_ncxp7")
+region = Rect2(1091, 143, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5ogl"]
+atlas = ExtResource("1_ncxp7")
+region = Rect2(1070, 143, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4747"]
+atlas = ExtResource("1_ncxp7")
+region = Rect2(1048, 143, 21, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7fpb"]
+atlas = ExtResource("1_ncxp7")
+region = Rect2(1027, 143, 21, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1836l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyeo8")
+}],
+"loop": true,
+"name": &"completado",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5ogl")
+}],
+"loop": true,
+"name": &"fallada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4747")
+}],
+"loop": true,
+"name": &"pisada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l7fpb")
+}],
+"loop": true,
+"name": &"sinpisar",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l4lx0"]
+radius = 6.08276
+
+[node name="PuzzleSuelo" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_iy1kh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1836l")
+animation = &"pisada"
+autoplay = "sinpisar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l4lx0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

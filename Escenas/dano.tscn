@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4kdasx3jhiid"]
+
+[ext_resource type="Script" path="res://Scripts/dano.gd" id="1_moqfp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4u8vo"]
+size = Vector2(84, 4)
+
+[node name="dano" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_moqfp")
+damage_amount = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 3)
+shape = SubResource("RectangleShape2D_4u8vo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

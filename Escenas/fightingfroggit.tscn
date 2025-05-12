@@ -1,0 +1,211 @@
+[gd_scene load_steps=17 format=3 uid="uid://bwrjw2g2y4jv8"]
+
+[ext_resource type="Script" path="res://Scripts/fightingscene.gd" id="1_qhb5k"]
+[ext_resource type="PackedScene" uid="uid://bt022wjas1rjp" path="res://Escenas/soul.tscn" id="2_vices"]
+[ext_resource type="Texture2D" uid="uid://srm6esi2nq46" path="res://Imagenes/fightbox.png" id="3_vlh1f"]
+[ext_resource type="PackedScene" uid="uid://curra27w0fwm2" path="res://Escenas/froggit.tscn" id="4_2kxbj"]
+[ext_resource type="Texture2D" uid="uid://cgc1n04du82a" path="res://Imagenes/fightbutton.png" id="5_cj2t1"]
+[ext_resource type="AudioStream" uid="uid://beo6ps20sb5vh" path="res://Audios/Undertale_Sound_Button.WAV" id="6_o31id"]
+[ext_resource type="Texture2D" uid="uid://5fifo3j32vub" path="res://Imagenes/mercybutton.jpg" id="7_brmnt"]
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="8_3ka34"]
+[ext_resource type="AudioStream" uid="uid://dbr68umk0now0" path="res://Audios/Undertale： Enemy Approaching Arrangement.wav" id="9_ept0d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_deurg"]
+size = Vector2(736.5, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1aqh0"]
+size = Vector2(739.5, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjnoj"]
+size = Vector2(18.5, 527)
+
+[sub_resource type="Animation" id="Animation_5n6pl"]
+resource_name = "EntrandoPelea"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2.16, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(26, 0), Vector2(-616, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xfpq2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(26, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_aglnt"]
+resource_name = "SaliendoPelea"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.16, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-616, 0), Vector2(26, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qvttp"]
+_data = {
+"EntrandoPelea": SubResource("Animation_5n6pl"),
+"RESET": SubResource("Animation_xfpq2"),
+"SaliendoPelea": SubResource("Animation_aglnt")
+}
+
+[node name="FightingFroggit" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_qhb5k")
+textos_pelea = ["¡Froggit saltó cerca!", "Froggit te mira."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 199)
+scale = Vector2(0.1, 0.1)
+zoom = Vector2(0.8, 0.8)
+
+[node name="Alma" parent="." instance=ExtResource("2_vices")]
+z_index = 3
+position = Vector2(1229, 43)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(26, 0)
+
+[node name="Fightbox" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(552, 297)
+scale = Vector2(9.08025, 7.23418)
+texture = ExtResource("3_vlh1f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(551.75, 22)
+shape = SubResource("RectangleShape2D_deurg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(552.25, 573.5)
+shape = SubResource("RectangleShape2D_1aqh0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(199.75, 296.5)
+shape = SubResource("RectangleShape2D_cjnoj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(913, 292)
+shape = SubResource("RectangleShape2D_cjnoj")
+
+[node name="Froggit" parent="." instance=ExtResource("4_2kxbj")]
+position = Vector2(116, -284)
+
+[node name="Fight" type="Button" parent="."]
+offset_left = 165.0
+offset_top = 796.0
+offset_right = 173.0
+offset_bottom = 804.0
+
+[node name="Fightbutton" type="Sprite2D" parent="Fight"]
+position = Vector2(4.00002, -5)
+scale = Vector2(0.866756, 0.870128)
+texture = ExtResource("5_cj2t1")
+
+[node name="AudioBoton" type="AudioStreamPlayer2D" parent="Fight"]
+stream = ExtResource("6_o31id")
+max_distance = 100000.0
+
+[node name="Mercy" type="Button" parent="."]
+offset_left = 960.0
+offset_top = 786.0
+offset_right = 968.0
+offset_bottom = 794.0
+
+[node name="Mercybutton" type="Sprite2D" parent="Mercy"]
+position = Vector2(13, 4.99994)
+scale = Vector2(0.941, 0.87)
+texture = ExtResource("7_brmnt")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -213.0
+offset_top = 635.0
+offset_right = 267.0
+offset_bottom = 697.0
+theme_override_fonts/font = ExtResource("8_3ka34")
+theme_override_font_sizes/font_size = 60
+text = "PAPYRUS      LV1"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2, 0)
+stream = ExtResource("9_ept0d")
+volume_db = -6.222
+autoplay = true
+max_distance = 100000.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qvttp")
+}
+
+[node name="LabelTextoPelea" type="RichTextLabel" parent="."]
+offset_left = -54.0
+offset_top = 88.0
+offset_right = 1174.0
+offset_bottom = 265.0
+theme_override_fonts/normal_font = ExtResource("8_3ka34")
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "Texto"
+visible_characters = 0
+visible_ratio = 0.0
+
+[editable path="Alma"]
+[editable path="Froggit"]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmabkr7fievv0"]
+
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="1_fpks2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdc23"]
+atlas = ExtResource("1_fpks2")
+region = Rect2(286, 1124, 13, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwplt"]
+atlas = ExtResource("1_fpks2")
+region = Rect2(334, 1124, 13, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcoi0"]
+atlas = ExtResource("1_fpks2")
+region = Rect2(382, 1124, 13, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gcc8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdc23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwplt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcoi0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4aggw"]
+size = Vector2(5, 60.5)
+
+[node name="Antorcha" type="Node2D"]
+z_index = -1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gcc8f")
+autoplay = "default"
+frame_progress = 0.817401
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 32)
+texture = ExtResource("1_fpks2")
+region_enabled = true
+region_rect = Rect2(283, 1144, 24, 46)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 25.25)
+shape = SubResource("RectangleShape2D_4aggw")

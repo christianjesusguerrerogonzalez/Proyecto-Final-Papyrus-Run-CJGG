@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2j08aded6w7g"]
+
+[sub_resource type="Gradient" id="Gradient_imo4s"]
+offsets = PackedFloat32Array(0, 0.490854, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.717647, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lh5vr"]
+gradient = SubResource("Gradient_imo4s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mems1"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(550, 1, 1)
+inherit_velocity_ratio = 1.0
+gravity = Vector3(0, 20, 0)
+radial_accel_min = -1.0
+radial_accel_max = -1.0
+damping_min = 5.0
+damping_max = 5.0
+scale_min = 2.0
+scale_max = 5.0
+color_ramp = SubResource("GradientTexture1D_lh5vr")
+
+[node name="GeneradorNieve" type="GPUParticles2D"]
+scale = Vector2(28.44, 1)
+amount = 3000
+process_material = SubResource("ParticleProcessMaterial_mems1")
+lifetime = 20.0

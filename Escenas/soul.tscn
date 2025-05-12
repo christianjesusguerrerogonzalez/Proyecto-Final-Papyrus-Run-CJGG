@@ -1,0 +1,81 @@
+[gd_scene load_steps=10 format=3 uid="uid://bt022wjas1rjp"]
+
+[ext_resource type="Texture2D" uid="uid://b7k8juy7su7mk" path="res://Imagenes/alma (1).png" id="1_fjm1q"]
+[ext_resource type="Script" path="res://Scripts/soul.gd" id="1_l330k"]
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="3_sw2cc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqdpp"]
+atlas = ExtResource("1_fjm1q")
+region = Rect2(0, 777, 20, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oell4"]
+atlas = ExtResource("1_fjm1q")
+region = Rect2(20, 777, 20, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kg87q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqdpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oell4")
+}],
+"loop": false,
+"name": &"Muerte",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqdpp")
+}],
+"loop": false,
+"name": &"Normal",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dkunl"]
+size = Vector2(17, 17)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfw5o"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08fhx"]
+bg_color = Color(1, 1, 0, 1)
+
+[node name="Alma" type="CharacterBody2D"]
+scale = Vector2(-2.76297, 2.721)
+script = ExtResource("1_l330k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.723859, -8.08526)
+sprite_frames = SubResource("SpriteFrames_kg87q")
+animation = &"Normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -7.5)
+shape = SubResource("RectangleShape2D_dkunl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressVida" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 797.0
+offset_top = 895.0
+offset_right = 1097.0
+offset_bottom = 944.0
+rotation = 6.28199
+scale = Vector2(0.985336, 0.948338)
+theme_override_styles/background = SubResource("StyleBoxFlat_nfw5o")
+theme_override_styles/fill = SubResource("StyleBoxFlat_08fhx")
+max_value = 680.0
+value = 100.0
+show_percentage = false
+
+[node name="LabelVida" type="Label" parent="CanvasLayer"]
+offset_left = 1232.0
+offset_top = 887.0
+offset_right = 1312.0
+offset_bottom = 969.0
+theme_override_fonts/font = ExtResource("3_sw2cc")
+theme_override_font_sizes/font_size = 50
+text = "67"

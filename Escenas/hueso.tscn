@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://besaob0kgntxh"]
+
+[ext_resource type="Texture2D" uid="uid://c5qcixhd6rqqv" path="res://Sprites/hueso.png" id="1_1b2ik"]
+[ext_resource type="Script" path="res://Scripts/hueso.gd" id="1_x6r8t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rl8t5"]
+size = Vector2(29.6919, 81.4916)
+
+[node name="HuesoArea" type="Area2D"]
+scale = Vector2(0.336792, 0.282238)
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_x6r8t")
+speed = 100.0
+
+[node name="Hueso" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 1.90735e-06)
+rotation = -1.55684
+scale = Vector2(0.251479, 0.20211)
+texture = ExtResource("1_1b2ik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.77156)
+shape = SubResource("RectangleShape2D_rl8t5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

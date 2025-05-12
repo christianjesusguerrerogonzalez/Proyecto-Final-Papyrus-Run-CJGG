@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbvmg3jrjfqye"]
+
+[ext_resource type="Texture2D" uid="uid://can0vsjpal1cl" path="res://Mapas/undertale.png" id="1_aymro"]
+[ext_resource type="Script" path="res://Scripts/tapon.gd" id="2_pogn5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6m0n4"]
+size = Vector2(636, 175.635)
+
+[node name="Tapon" type="Sprite2D"]
+position = Vector2(2, -1.90735e-06)
+scale = Vector2(1, 2.73864)
+texture = ExtResource("1_aymro")
+region_enabled = true
+region_rect = Rect2(208, 1244, 634, 152)
+script = ExtResource("2_pogn5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1, 0.182573)
+shape = SubResource("RectangleShape2D_6m0n4")

@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://leqbroyaokni"]
+
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="1_ucx52"]
+[ext_resource type="Texture2D" uid="uid://kbmmapr13idy" path="res://Sprites/Vegetoid-removebg-preview.png" id="2_2c6mq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da125"]
+size = Vector2(311, 314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1goa"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_od1qc"]
+bg_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsq6g"]
+bg_color = Color(0.244776, 0.244776, 0.244776, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va4m6"]
+bg_color = Color(0.6, 0.941176, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8i2k"]
+atlas = ExtResource("2_2c6mq")
+region = Rect2(0, 0, 178, 243)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylxfc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8i2k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Vegetoid" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(453.5, 104)
+shape = SubResource("RectangleShape2D_da125")
+
+[node name="BarraVidaVegetoid" type="ProgressBar" parent="."]
+offset_left = 605.0
+offset_top = -101.0
+offset_right = 905.0
+offset_bottom = -52.0
+rotation = 3.14311
+theme_override_styles/background = SubResource("StyleBoxFlat_r1goa")
+theme_override_styles/fill = SubResource("StyleBoxFlat_od1qc")
+max_value = 72.0
+value = 72.0
+fill_mode = 1
+show_percentage = false
+
+[node name="LabelDano" type="Label" parent="."]
+offset_left = 38.0
+offset_top = -166.0
+offset_right = 78.0
+offset_bottom = -84.0
+theme_override_fonts/font = ExtResource("1_ucx52")
+theme_override_font_sizes/font_size = 80
+text = "0"
+
+[node name="BarraMercyVegetoid" type="ProgressBar" parent="."]
+offset_left = 786.0
+offset_top = -68.0
+offset_right = 1022.0
+offset_bottom = 5.0
+rotation = 1.57296
+theme_override_styles/background = SubResource("StyleBoxFlat_jsq6g")
+theme_override_styles/fill = SubResource("StyleBoxFlat_va4m6")
+fill_mode = 1
+show_percentage = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(451, 97)
+sprite_frames = SubResource("SpriteFrames_ylxfc")
+autoplay = "default"

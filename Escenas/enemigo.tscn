@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://b63csann7jqmk"]
+
+[ext_resource type="Script" path="res://Scripts/enemigo.gd" id="1_1miih"]
+[ext_resource type="Texture2D" uid="uid://c5qcixhd6rqqv" path="res://Sprites/hueso.png" id="1_t4ndn"]
+[ext_resource type="PackedScene" uid="uid://b4kdasx3jhiid" path="res://Escenas/dano.tscn" id="3_kdw4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ckat"]
+size = Vector2(20, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fv37r"]
+radius = 150.562
+
+[node name="Enemigo" type="CharacterBody2D"]
+scale = Vector2(0.540646, 0.534534)
+collision_layer = 67
+collision_mask = 67
+script = ExtResource("1_1miih")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.4373e-06, 1.00002)
+rotation = 1.56185
+scale = Vector2(0.163424, 0.174345)
+texture = ExtResource("1_t4ndn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_7ckat")
+
+[node name="RangoSeguir" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RangoSeguir"]
+scale = Vector2(2.46764, 2.8818)
+shape = SubResource("CircleShape2D_fv37r")
+
+[node name="dano" parent="." instance=ExtResource("3_kdw4n")]
+position = Vector2(-1.84964, -54.2529)
+scale = Vector2(0.29952, 17.735)
+damage_amount = 100.0
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="body_entered" from="RangoSeguir" to="." method="_on_rango_seguir_body_entered"]
+[connection signal="body_exited" from="RangoSeguir" to="." method="_on_rango_seguir_body_exited"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

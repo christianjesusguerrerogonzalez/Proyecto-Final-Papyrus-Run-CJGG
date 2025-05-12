@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=3 uid="uid://h83divsvegcp"]
+
+[ext_resource type="Texture2D" uid="uid://7ed1q8jyevm2" path="res://Sprites/Whimsun.png" id="2_0lyyh"]
+[ext_resource type="FontFile" uid="uid://bhv1ivxktavwf" path="res://Imagenes/determination-mono-web-font/DeterminationMonoWebRegular-Z5oq.ttf" id="2_rau74"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8c2c6"]
+size = Vector2(311, 314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qd8km"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7byf"]
+bg_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fr6y"]
+bg_color = Color(0.244776, 0.244776, 0.244776, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vd2i"]
+bg_color = Color(0.6, 0.941176, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6lwl"]
+atlas = ExtResource("2_0lyyh")
+region = Rect2(0, 0, 190, 222)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itba0"]
+atlas = ExtResource("2_0lyyh")
+region = Rect2(190, 0, 190, 222)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7a6di"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6lwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itba0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_crqb3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(451, 97)]
+}
+
+[sub_resource type="Animation" id="Animation_wur8k"]
+resource_name = "WhimsumFloating"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(451, 97), Vector2(451, 9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w6fid"]
+_data = {
+"RESET": SubResource("Animation_crqb3"),
+"WhimsumFloating": SubResource("Animation_wur8k")
+}
+
+[node name="Whimsun" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(453.5, 104)
+shape = SubResource("RectangleShape2D_8c2c6")
+
+[node name="BarraVidaWhimsun" type="ProgressBar" parent="."]
+offset_left = 605.0
+offset_top = -101.0
+offset_right = 905.0
+offset_bottom = -52.0
+rotation = 3.14311
+theme_override_styles/background = SubResource("StyleBoxFlat_qd8km")
+theme_override_styles/fill = SubResource("StyleBoxFlat_l7byf")
+max_value = 10.0
+value = 10.0
+fill_mode = 1
+show_percentage = false
+
+[node name="LabelDano" type="Label" parent="."]
+offset_left = 38.0
+offset_top = -166.0
+offset_right = 78.0
+offset_bottom = -84.0
+theme_override_fonts/font = ExtResource("2_rau74")
+theme_override_font_sizes/font_size = 80
+text = "0"
+
+[node name="BarraMercyWhimsun" type="ProgressBar" parent="."]
+offset_left = 786.0
+offset_top = -68.0
+offset_right = 1022.0
+offset_bottom = 5.0
+rotation = 1.57296
+theme_override_styles/background = SubResource("StyleBoxFlat_5fr6y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3vd2i")
+fill_mode = 1
+show_percentage = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(451, 97)
+sprite_frames = SubResource("SpriteFrames_7a6di")
+autoplay = "default"
+frame_progress = 0.930083
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w6fid")
+}
+autoplay = "WhimsumFloating"
